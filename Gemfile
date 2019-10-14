@@ -11,7 +11,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'omniauth-facebook'
 gem 'devise'
 gem 'pg', '0.20.0'
-
+gem "bootstrap-sass", ">= 3.4.1"
 
 group :development, :test do
   gem 'pg', '0.20.0'

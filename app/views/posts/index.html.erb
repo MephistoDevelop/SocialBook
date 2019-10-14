@@ -1,2 +1,8 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+  <% user = User.where(id: post.user_id) %>
+  <br>
+  <%= post.content %> <br>
+  <% user.each do |user| %>
+    User: <%= user.username %>
+  <% end %>
+<% end %>
