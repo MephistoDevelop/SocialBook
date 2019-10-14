@@ -16,6 +16,10 @@ gem "bootstrap-sass", ">= 3.4.1"
 group :development, :test do
   gem 'pg', '0.20.0'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 group :development do
