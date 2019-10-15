@@ -1,7 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-
-two:
-  content: MyText
+event:
+  content: This  isthe first post
+  user_id: 1
