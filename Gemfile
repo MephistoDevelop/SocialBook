@@ -12,6 +12,7 @@ gem 'omniauth-facebook'
 gem 'devise'
 gem 'pg', '0.20.0'
 gem "bootstrap-sass", ">= 3.4.1"
+gem "factory_bot_rails"
 
 group :development, :test do
   #gem 'pg', '0.20.0'
@@ -19,7 +20,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 3.0'
   gem 'database_cleaner'
 end
 
