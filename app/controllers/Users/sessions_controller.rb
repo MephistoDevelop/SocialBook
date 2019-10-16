@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-
   # GET /resource/sign_in
-   def new
-     super
+  def new
+    super
   end
 
   # POST /resource/sign_in
