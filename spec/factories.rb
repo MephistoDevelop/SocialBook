@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :comment do
+    content { "MyText" }
+    author { 1 }
+  end
+
   factory :user do
     trait :ines do
       username { 'Ines' }
