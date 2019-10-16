@@ -1,15 +1,15 @@
 FactoryBot.define do
-  factory :users  do
+  factory :user  do
     trait :ines do
-      username { Ines }
-      email { inesherald@gmail.com }
+      username { "Ines" }
+      email {"inesherald@gmail.com" }
       password  { 123456 }
       password_confirmation { 123456 }
     end
 
     trait :checo do
-      username { checo }
-      email { checo@gmail.com }
+      username { "checo" }
+      email { "checo@gmail.com" }
       password  { 123456 }
       password_confirmation { 123456 }
     end

@@ -1,11 +1,12 @@
 example_id                                       | status  | run_time        |
 ------------------------------------------------ | ------- | --------------- |
-./spec/controllers/posts_controller_spec.rb[1:1] | passed  | 0.00766 seconds |
-./spec/models/user_spec.rb[1:1]                  | passed  | 0.06949 seconds |
-./spec/views/posts/index.html.erb_spec.rb[1:1]   | passed  | 0.13255 seconds |
+./spec/controllers/posts_controller_spec.rb[1:1] | passed  | 0.00728 seconds |
+./spec/controllers/users_controller_spec.rb[1:1] | passed  | 0.26671 seconds |
+./spec/models/user_spec.rb[1:1]                  | passed  | 0.08223 seconds |
+./spec/views/posts/index.html.erb_spec.rb[1:1]   | passed  | 0.14425 seconds |
 ./spec/views/posts/new.html.erb_spec.rb[1:1]     | pending | 0.00001 seconds |
 ./spec/views/posts/show.html.erb_spec.rb[1:1]    | pending | 0.00001 seconds |
 ./spec/views/users/create.html.erb_spec.rb[1:1]  | pending | 0.00001 seconds |
-./spec/views/users/index.html.erb_spec.rb[1:1]   | passed  | 0.25704 seconds |
+./spec/views/users/index.html.erb_spec.rb[1:1]   | passed  | 0.25081 seconds |
 ./spec/views/users/new.html.erb_spec.rb[1:1]     | pending | 0.00002 seconds |
 ./spec/views/users/show.html.erb_spec.rb[1:1]    | failed  | 0.00367 seconds |
