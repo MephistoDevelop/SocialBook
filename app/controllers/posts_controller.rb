@@ -20,6 +20,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def create_like
+    self.add_like(current_user)
+  end
+
   private
 
   def post_params

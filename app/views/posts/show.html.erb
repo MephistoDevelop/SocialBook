@@ -1,4 +1,15 @@
 <%= @post.content %>
-<%= User.where(id: @post.user_id).pluck(:username)[0] %>
+<%= User.where(id: @post.user_id).pluck(:username)[0] %><br>
+User reactions: <%= @post.total_reactions %>
+<br>
+<%= display_reactions %>
+<br>
+Comments Sections:<br>
+<% @post.comments.each do |comment| %>
+  <%= comment.content %>
+  <%= User.where(id: comment.author_id).pluck(:username)[0] %>
+<% end %>
+
+
 
 

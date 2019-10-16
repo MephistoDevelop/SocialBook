@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'users/show'
   devise_for :users
   get '/users' => 'users#index', as: :user_root # creates user_root_path
+  get 'reactions/new' => 'reactions#new'
+  post 'reactions/new' => 'reactions#create'
+
 
   devise_scope :user do
     root 'devise/sessions#new'

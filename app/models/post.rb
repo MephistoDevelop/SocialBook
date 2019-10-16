@@ -19,8 +19,16 @@ class Post < ApplicationRecord
     self.reactions.where(["user_reaction = ?", "Dislike"]).size
   end
 
-  def total_likes
+  def total_reactions
     self.likes - self.dislikes
+  end
+
+  def add_like(user)
+    self.reactions << user.reactions.create(user_reaction: "Like")
+  end
+
+  def add_dislike(user)
+    self.reactions << user.reactions.create(user_reaction: "Dislike")
   end
 
 end
