@@ -11,4 +11,5 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments, foreign_key: 'author'
+  has_many :reactions
 end

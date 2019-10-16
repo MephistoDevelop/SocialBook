@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build(comments_params)
     @comment.post_id = @post.id
     @comment.save
+    redirect_to @post
   end
 
   private

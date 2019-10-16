@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :reaction do
+    post_id { 1 }
+    user_id { 1 }
+    user_reaction { "MyString" }
+  end
+
   factory :comment do
     content { "MyText" }
     author { 1 }
