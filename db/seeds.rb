@@ -3,5 +3,26 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies = Movie.create( name: 'Star Wars' , name: 'Lord of the Rings' )
 #   Character.create(name: 'Luke', movie: movies.first)
+ines = User.create( username: 'Ines' ,
+                                  email: 'mephisto@microverse.com' ,
+                                  password: '123456' ,
+                                  password_confirmation: '123456' )
+
+ checo = User.create( username: 'checo' ,
+                                    email: 'checo@microverse.com' ,
+                                    password: '123456' ,
+                                    password_confirmation: '123456' )
+
+michael = User.create(username: 'michael' ,
+                                      email: 'michael@microverse.com' ,
+                                      password: '123456' ,
+                                      password_confirmation: '123456' )
+
+post1 = Post.create( content: 'Im the  seed first post' ,
+                                        user_id: 1 )
+
+ post2 = Post.create( content: 'Im the  seed first post' ,
+                                     user_id: 1 )
+

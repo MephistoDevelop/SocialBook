@@ -1,13 +1,13 @@
-<%= @post.content %>
-<%= User.where(id: @post.user_id).pluck(:username)[0] %><br>
-User reactions: <%= @post.total_reactions %>
+Author: <%= User.where(id: @post.user_id).pluck(:username)[0] %><br><br>
+User reactions: <%= @post.total_reactions %> <br><br>
+Content: <%= @post.content %> <br><br>
 <br>
 <%= display_reactions %>
 <br>
 Comments Sections:<br>
 <% @post.comments.each do |comment| %>
-  <%= comment.content %>
-  <%= User.where(id: comment.author_id).pluck(:username)[0] %>
+ <div>Author: <%=User.where(id: comment.author_id).pluck(:username)[0] %><br> <%= comment.content %></div>
+
 <% end %>
 
 
