@@ -4,5 +4,5 @@ class Comment < ApplicationRecord
 
 
   validates :content, presence: true
-  validates :author, presence: true
+  validates :author_id, presence: true
 end
