@@ -24,12 +24,16 @@ class PostsController < ApplicationController
     self.add_like(current_user)
   end
 
-  def button
+  def add_like
     @post=Post.find(params[:post_id])
     @post.reactions << current_user.reactions.create(user_reaction: "Like")
     redirect_to @post
   end
-
+  def add_dislike
+    @post=Post.find(params[:post_id])
+    @post.reactions << current_user.reactions.create(user_reaction: "DisLike")
+    redirect_to @post
+  end
 
   private
 
