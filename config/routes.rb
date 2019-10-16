@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get '/users' => 'users#index', as: :user_root # creates user_root_path
   get 'reactions/new' => 'reactions#new'
   post 'reactions/new' => 'reactions#create'
-  post '/ike', to: 'posts#add_like', as: 'button'
+  post '/addlike', to: 'posts#add_like', as: 'addlike'
+  post '/dislike', to: 'posts#add_like', as: 'dislike'
 
 
 
