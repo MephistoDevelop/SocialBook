@@ -5,7 +5,7 @@ require "spec_helper"
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "capybara/rspec"
-
+require 'factories'
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -46,5 +46,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
   config.include Capybara::DSL
 end
