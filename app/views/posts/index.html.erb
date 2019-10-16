@@ -5,5 +5,9 @@
   <% user.each do |user| %>
     User: <%= user.username %>
   <% end %>
-  <%= post.comments %>
+  <% post.comments.each do |comment| %>
+    Comment: <%= comment.content %><br>
+    <% end %>
+  Reactions:
+  <%= post.total_likes %>
 <% end %>
