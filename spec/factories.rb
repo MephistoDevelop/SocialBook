@@ -20,5 +20,9 @@ FactoryBot.define do
       content { "Event from factoryBot traits"}
       user_id { 1 }
     end
+    trait :event2 do
+      content { "Event 2 from factoryBot traits"}
+      user_id { 1 }
+    end
   end
 end
