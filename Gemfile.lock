@@ -67,7 +67,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
+    crass (1.0.5)
     database_cleaner (1.7.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -264,7 +264,6 @@ DEPENDENCIES
   rails (= 5.1.6)
   rspec-rails
   sass-rails (= 5.0.6)
-  selenium-webdriver
   spring (= 2.0.2)
   spring-watcher-listen (= 2.0.1)
   turbolinks (= 5.0.1)
