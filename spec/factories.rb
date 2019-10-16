@@ -14,4 +14,11 @@ FactoryBot.define do
       password_confirmation { 123456 }
     end
   end
+
+  factory :post do
+    trait :event1 do
+      content { "Event from factoryBot traits"}
+      user_id { 1 }
+    end
+  end
 end
