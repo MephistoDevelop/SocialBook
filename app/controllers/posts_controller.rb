@@ -20,27 +20,28 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def create_like
-    add_like(current_user)
-  end
-
   def add_like
     @post = Post.find(params[:post_id])
-    @post.reactions << current_user.reactions.create(user_reaction: 'Like')
-    redirect_to @post
-  end
-
-  def add_dislike
-    @post = Post.find(params[:post_id])
-    if
-     @post.reactions << current_user.reactions.create(user_reaction: 'DisLike')
+    if @post.user_reacted?(current_user)
+      @post.destroy_reaction(current_user)
       redirect_to @post
     else
-      search_user_reactions(@post,current_user.id)
+      @post.add_like(current_user)
       redirect_to @post
     end
   end
-
+=begin
+  def add_dislike
+    @post = Post.find(params[:post_id])
+    if @post.user_reacted?(current_user)
+      @post.toggle_reaction(current_user)
+      redirect_to @post
+    else
+      @post.reactions << current_user.reactions.create(user_reaction: 'DisLike')
+      redirect_to @post
+    end
+  end
+=end
   private
 
   def post_params

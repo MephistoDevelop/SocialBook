@@ -1,11 +1,9 @@
 Author: <%= User.where(id: @post.user_id).pluck(:username)[0] %><br><br>
-User reactions: <%= @post.total_reactions %>
+User reactions: <%= @post.likes %>
 <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
-<%= button_to 'DisLike', {:controller => "posts", :action => "add_dislike", :post_id => @post.id, } , :method=>:post  %>
  <br><br>
 Content: <%= @post.content %> <br><br>
 <br>
-<%= display_reactions %>
 <br>
 Comments Sections:<br><br><br>
 <% @post.comments.each do |comment| %>

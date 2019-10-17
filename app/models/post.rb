@@ -12,22 +12,18 @@ class Post < ApplicationRecord
   end
 
   def likes
-    reactions.where(['user_reaction = ?', 'Like']).size
-  end
-
-  def dislikes
-    reactions.where(['user_reaction = ?', 'Dislike']).size
-  end
-
-  def total_reactions
-    likes - dislikes
+    self.reactions.size
   end
 
   def add_like(user)
-    reactions << user.reactions.create(user_reaction: 'Like')
+    self.reactions << user.reactions.create(user_reaction: 'Like')
   end
 
-  def add_dislike(user)
-    reactions << user.reactions.create(user_reaction: 'Dislike')
+  def user_reacted?(user)
+    !self.reactions.where(user_id: user.id).empty?
+  end
+
+  def destroy_reaction(user)
+      self.reactions.where(user_id: user.id).destroy_all
   end
 end
