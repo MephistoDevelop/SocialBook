@@ -4,42 +4,40 @@ FactoryBot.define do
   factory :reaction do
     post_id { 1 }
     user_id { 1 }
-    user_reaction { "MyString" }
+    user_reaction { 'MyString' }
   end
 
-  factory :user, aliases: [:author] do
-
+  factory :user do
     trait :controller_likes do
       username { 'controller likes' }
       email { 'controller_likes@mail.com' }
-      password { 123456 }
-      password_confirmation { 123456 }
+      password { 123_456 }
+      password_confirmation { 123_456 }
     end
-
 
     trait :controller_post do
       username { 'controller post' }
       email { 'controller_post@mail.com' }
-      password { 123456 }
-      password_confirmation { 123456 }
+      password { 123_456 }
+      password_confirmation { 123_456 }
     end
 
     trait :controller_comments do
       username { 'controller comments' }
       email { 'controller_comments@mail.com' }
-      password { 123456 }
-      password_confirmation { 123456 }
+      password { 123_456 }
+      password_confirmation { 123_456 }
     end
 
     trait :author do
-      author {true}
+      author { true }
     end
 
     trait :ines do
       username { 'Ines' }
       email { 'ines@gmail.com' }
-      password { 123456 }
-      password_confirmation { 123456 }
+      password { 123_456 }
+      password_confirmation { 123_456 }
     end
 
     trait :checo do
@@ -58,8 +56,6 @@ FactoryBot.define do
   end
 
   factory :post do
-
-
     trait :post_controller do
       content { 'Event created from factoryBot post_controller' }
       user_id { 1 }
@@ -92,9 +88,11 @@ FactoryBot.define do
   end
 
   factory :comment do
-    association :author, factory: [:user], username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
-    association :post, factory: [:post], content: 'Event created from factoryBot post_comments'
-    content { "MyText" }
-  end
+   # association :post, :event1, content: 'This is my factory comments post'
+   # association :user, :checo, username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
+    #  association :author, factory: [:user], username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
+    # association :post, factory: [:post], content: 'Event created from factoryBot post_comments'
+    content { 'MyText' }
 
+  end
 end

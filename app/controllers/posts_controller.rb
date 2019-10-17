@@ -21,18 +21,24 @@ class PostsController < ApplicationController
   end
 
   def create_like
-    self.add_like(current_user)
+    add_like(current_user)
   end
 
   def add_like
-    @post=Post.find(params[:post_id])
-    @post.reactions << current_user.reactions.create(user_reaction: "Like")
+    @post = Post.find(params[:post_id])
+    @post.reactions << current_user.reactions.create(user_reaction: 'Like')
     redirect_to @post
   end
+
   def add_dislike
-    @post=Post.find(params[:post_id])
-    @post.reactions << current_user.reactions.create(user_reaction: "DisLike")
-    redirect_to @post
+    @post = Post.find(params[:post_id])
+    if
+     @post.reactions << current_user.reactions.create(user_reaction: 'DisLike')
+      redirect_to @post
+    else
+      search_user_reactions(@post,current_user.id)
+      redirect_to @post
+    end
   end
 
   private

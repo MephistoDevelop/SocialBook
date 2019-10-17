@@ -8,27 +8,26 @@ class Post < ApplicationRecord
   has_many :reactions
 
   def number_of_reactions
-    self.reactions.size
+    reactions.size
   end
 
   def likes
-    self.reactions.where(["user_reaction = ?", "Like"]).size
+    reactions.where(['user_reaction = ?', 'Like']).size
   end
 
   def dislikes
-    self.reactions.where(["user_reaction = ?", "Dislike"]).size
+    reactions.where(['user_reaction = ?', 'Dislike']).size
   end
 
   def total_reactions
-    self.likes - self.dislikes
+    likes - dislikes
   end
 
   def add_like(user)
-    self.reactions << user.reactions.create(user_reaction: "Like")
+    reactions << user.reactions.create(user_reaction: 'Like')
   end
 
   def add_dislike(user)
-    self.reactions << user.reactions.create(user_reaction: "Dislike")
+    reactions << user.reactions.create(user_reaction: 'Dislike')
   end
-
 end
