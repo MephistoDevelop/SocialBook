@@ -13,7 +13,6 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   it "create a comment in a post" do
-#    post = create(:post,:event1)
     comment = @user1.comments.build(content:"This is my rspec test")
     comment.post_id = @post.id
     comment.save

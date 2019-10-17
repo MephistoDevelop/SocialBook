@@ -7,12 +7,7 @@ FactoryBot.define do
     user_reaction { "MyString" }
   end
 
-  factory :comment do
-    content { "MyText" }
-    author { 1 }
-  end
-
-  factory :user do
+  factory :user, aliases: [:author] do
 
     trait :controller_likes do
       username { 'controller likes' }
@@ -34,6 +29,10 @@ FactoryBot.define do
       email { 'controller_comments@mail.com' }
       password { 123456 }
       password_confirmation { 123456 }
+    end
+
+    trait :author do
+      author {true}
     end
 
     trait :ines do
@@ -91,4 +90,11 @@ FactoryBot.define do
       user_id { 1 }
     end
   end
+
+  factory :comment do
+    association :author, factory: [:user], username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
+    association :post, factory: [:post], content: 'Event created from factoryBot post_comments'
+    content { "MyText" }
+  end
+
 end

@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
   has_many :posts
-  has_many :comments, foreign_key: 'author'
+  has_many :comments, foreign_key: 'author_id'
   has_many :reactions
 end
