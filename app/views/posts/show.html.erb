@@ -1,0 +1,3 @@
+<%= @post.content %>
+<%= User.where(id: @post.user_id).pluck(:username)[0] %>
+

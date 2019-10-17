@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+  <% user = User.where(id: post.user_id) %>
+  <br>
+  <%= post.content %> <br>
+  <% user.each do |user| %>
+    User: <%= user.username %>
+  <% end %>
+<% end %>
