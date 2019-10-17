@@ -22,7 +22,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   it 'show post after created it' do
-    @post2 = create(:post, :event2)
+    @post2 = create(:post, :post_controller)
     redirect_to(action: 'show')
   end
 end

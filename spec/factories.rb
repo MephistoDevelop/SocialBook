@@ -42,8 +42,6 @@ FactoryBot.define do
       password { 123456 }
       password_confirmation { 123456 }
     end
-  end
-
 
     trait :checo do
       username { 'checo' }
@@ -61,6 +59,12 @@ FactoryBot.define do
   end
 
   factory :post do
+
+
+    trait :post_controller do
+      content { 'Event created from factoryBot post_controller' }
+      user_id { 1 }
+    end
 
     trait :post_user do
       content { 'Event created from factoryBot post_users' }
