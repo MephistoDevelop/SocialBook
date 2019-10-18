@@ -24,11 +24,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     if @post.user_reacted?(current_user)
       @post.destroy_reaction(current_user)
-      redirect_to @post
     else
       @post.add_like(current_user)
-      redirect_to @post
     end
+    redirect_to @post
   end
   #   def add_dislike
   #     @post = Post.find(params[:post_id])
