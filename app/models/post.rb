@@ -7,10 +7,6 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :reactions
 
-  def number_of_reactions
-    reactions.size
-  end
-
   def likes
     reactions.size
   end
@@ -24,6 +20,6 @@ class Post < ApplicationRecord
   end
 
   def destroy_reaction(user)
-    reactions.where(user_id: user.id).destroy_all
+    reactions.where(user_id: user.id).delete_all
   end
 end
