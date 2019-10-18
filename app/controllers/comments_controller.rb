@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(2)
+    @post = Post.find(1)
     @comment = current_user.comments.build(comments_params)
     @comment.post_id = @post.id
     @comment.save
@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comments_params
-    params(:comments).require(:content)
+    params.require(:comment).permit(:content)
   end
 end

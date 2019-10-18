@@ -13,6 +13,11 @@
     Comments: <br> <%= comment.content %><br>
     <br>
     <% end %>
+        <%= form_for @comment do |f|  %>
+    <%= f.hidden_field :post_id, :value => post.id %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+<% end %>
     <br>
    <%= link_to  "View Post", post,id:"post-button" %>
    <br>

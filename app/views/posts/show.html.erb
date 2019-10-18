@@ -10,5 +10,4 @@ Comments Sections:<br><br><br>
  <div>Author: <%=User.where(id: comment.author_id).pluck(:username)[0] %><br> <%= comment.content %></div>
 <br><br>
 <% end %>
-<%= render 'comments/create' %>
 
