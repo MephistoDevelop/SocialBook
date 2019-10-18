@@ -1,1 +1,27 @@
 @import "bootstrap";
+.navbar {
+  background-color: gray;
+  color: black;
+}
+
+a {
+  color: whitesmoke;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  margin: 10px;
+}
+#post-button {
+  color: white;
+
+  background-color: gray;
+
+  margin: 10px;
+
+  padding: 10px;
+}

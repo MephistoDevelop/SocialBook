@@ -5,7 +5,7 @@
     Post Author: <%= user.username %>
   <% end %><br>
    Reactions:
-  <%= post.reactions.map(&:user_reaction) %><br><br>
+  <%= post.likes %><br><br>
   Content: <br>  <%= post.content %> <br><br>
 
   <% post.comments.each do |comment| %>
@@ -14,6 +14,8 @@
     <br>
     <% end %>
     <br>
+   <%= link_to  "View Post", post,id:"post-button" %>
+   <br>
     ***********************************************************************************************************
 
 <% end %>
