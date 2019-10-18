@@ -88,11 +88,10 @@ FactoryBot.define do
   end
 
   factory :comment do
-   # association :post, :event1, content: 'This is my factory comments post'
-   # association :user, :checo, username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
+    # association :post, :event1, content: 'This is my factory comments post'
+    # association :user, :checo, username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
     #  association :author, factory: [:user], username: 'johny', email: 'johny@mail.com', password: '123456', password_confirmation: '123456'
     # association :post, factory: [:post], content: 'Event created from factoryBot post_comments'
     content { 'MyText' }
-
   end
 end

@@ -6,10 +6,15 @@
   <% end %><br>
    Reactions:
   <%= post.reactions.map(&:user_reaction) %><br><br>
-  Content:  <%= post.content %> <br><br>
+  Content: <br>  <%= post.content %> <br><br>
+
   <% post.comments.each do |comment| %>
-    Comment: <%= comment.content %><br>
+  comment author: <%= User.where(id: comment.author_id).pluck(:username).first %><br>
+    Comments: <br> <%= comment.content %><br>
+    <br>
     <% end %>
     <br>
+    ***********************************************************************************************************
 
 <% end %>
+***********************************************************************************************************
