@@ -1,4 +1,4 @@
-Author: <%= User.where(id: @post.user_id).pluck(:username)[0] %><br><br>
+Author: <%=post_author(@post) %><br><br>
 User reactions: <%= @post.likes %>
 <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
  <br><br>
@@ -7,7 +7,7 @@ Content: <%= @post.content %> <br><br>
 <br>
 Comments Sections:<br><br><br>
 <% @post.comments.each do |comment| %>
- <div>Author: <%=User.where(id: comment.author_id).pluck(:username)[0] %><br> <%= comment.content %></div>
+ <div>Author: <%=comment_author(comment) %><br> <%= comment.content %></div>
 <br><br>
 <% end %>
 

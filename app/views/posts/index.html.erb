@@ -9,7 +9,7 @@
   Content: <br>  <%= post.content %> <br><br>
 
   <% post.comments.each do |comment| %>
-  comment author: <%= User.where(id: comment.author_id).pluck(:username).first %><br>
+  comment author: <%= author_name(comment) %><br>
     Comments: <br> <%= comment.content %><br>
     <br>
     <% end %>
