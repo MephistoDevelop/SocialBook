@@ -29,10 +29,6 @@ FactoryBot.define do
       password_confirmation { 123_456 }
     end
 
-    trait :author do
-      author { true }
-    end
-
     trait :ines do
       username { 'Ines' }
       email { 'ines@gmail.com' }
@@ -50,6 +46,13 @@ FactoryBot.define do
     trait :johny do
       username { 'johny' }
       email { 'johny@gmail.com' }
+      password { 123_456 }
+      password_confirmation { 123_456 }
+    end
+
+    trait :reactor do
+      username { 'johny' }
+      email { 'reactor@gmail.com' }
       password { 123_456 }
       password_confirmation { 123_456 }
     end
