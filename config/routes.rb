@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'reactions/new' => 'reactions#new'
   post 'reactions/new' => 'reactions#create'
   post '/addlike', to: 'posts#add_like', as: 'addlike'
-
+  resources :comments, only: [:create, :new]
 
 
   devise_scope :user do
