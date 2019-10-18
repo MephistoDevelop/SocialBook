@@ -1,13 +1,15 @@
 <% @posts.each do |post| %>
   <% user = User.where(id: post.user_id) %>
   <br>
-  <%= post.content %> <br>
   <% user.each do |user| %>
-    User: <%= user.username %>
-  <% end %>
+    Post Author: <%= user.username %>
+  <% end %><br>
+   Reactions:
+  <%= post.reactions.map(&:user_reaction) %><br><br>
+  Content:  <%= post.content %> <br><br>
   <% post.comments.each do |comment| %>
     Comment: <%= comment.content %><br>
     <% end %>
-  Reactions:
-  <%= post.total_reactions %>
+    <br>
+
 <% end %>

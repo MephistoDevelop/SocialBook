@@ -23,6 +23,6 @@ michael = User.create(username: 'michael' ,
 post1 = Post.create( content: 'Im the  seed first post' ,
                                         user_id: 1 )
 
- post2 = Post.create( content: 'Im the  seed first post' ,
-                                     user_id: 1 )
+ post2 = Post.create( content: 'Im the  seed Second post' ,
+                                     user_id: 2)
 
