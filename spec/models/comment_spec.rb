@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before(:all) do
-    @user = create(:user, :controller_comments)
-    @post = create(:post, :event1)
+    @user = create(:user, :controller_post)
+    @post = create(:post, :post_comment)
     @comment = @user.comments.build(content: 'This is my content comment')
     @comment.post_id = @post.id
     @comment.author_id = @user.id
@@ -15,11 +15,6 @@ RSpec.describe Comment, type: :model do
   it 'return invalid comment for blank content' do
     @comment.content = ''
     expect(@comment).to_not be_valid
-  end
-
-  it 'return valid comment for present comment' do
-    @comment.content = 'Test it'
-    expect(@comment).to be_valid
   end
 
   it 'must have an author' do
