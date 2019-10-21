@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
 
-    def index
+  def index
     @user = User.all
   end
 
@@ -15,14 +15,20 @@ class UsersController < ApplicationController
   def send_friend_request
     user=User.find(params[:user_id])
     current_user.friendships.build(requested_id: user.id).save
-    @users
+    flash[:success] = 'You sent a friend request'
+    redirect_to user_root_path
   end
 
   def cancel_friend_request
     user=User.find(params[:invited_id])
     user. friend_requests.where(requestor_id: current_user.id).delete_all
-    @users
+    flash[:danger] = 'Invitation destroyed'
+    redirect_to user_root_path
   end
 
+  def friend_requests
+    requestor = Friendship.where(requested_id: current_user.id).pluck(:requestor_id)
+    User.find(requestor[0])
+  end
 
 end

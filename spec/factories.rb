@@ -1,12 +1,4 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
-  factory :friendship do
-    requestor_id { 1 }
-    requested_id { 1 }
-    friendship_status { false }
-  end
-
   factory :reaction do
     post_id { 1 }
     user_id { 1 }

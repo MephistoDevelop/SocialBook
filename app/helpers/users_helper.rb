@@ -1,7 +1,10 @@
 # frozen_string_literal: true
-
 module UsersHelper
   def user_invited?(invited_user)
     invited_user.friend_requests.where(requestor_id: current_user.id).empty?
+  end
+
+  def display_friend_requests(friendship)
+    User.find(friendship.requestor_id).username
   end
 end
