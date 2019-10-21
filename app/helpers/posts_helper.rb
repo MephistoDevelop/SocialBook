@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module PostsHelper
-
   def author_name(comment)
     User.where(id: comment.author_id).pluck(:username).first
   end
