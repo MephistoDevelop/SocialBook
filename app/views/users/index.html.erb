@@ -2,5 +2,10 @@
   <% @user.each do |user|  %>
      <p>Name:  <%= user.username %> </p> <br>
      <p>Email: <%= user.email %></p> <br>
+     <% if user_invited?(user) %>
+       <%= button_to 'Cancel Request', {:controller => "users", :action => "cancel_friend_request",:invited_id => user} , :method=>:post  %>
+      <%else%>
+        <%= button_to 'Add Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
+      <%end%>
   <% end%>
 </div>
