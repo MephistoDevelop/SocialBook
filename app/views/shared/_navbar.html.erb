@@ -14,6 +14,7 @@
  <%= link_to('Show Posts', posts_path) %>
  </li>
     <li class="nav-item"> <%= link_to 'Create post', new_post_path  %></li>
+    <li class="nav-item"> <%= link_to "Friends  requests: #{friends_request_number} ",  friendrequests_path  %> </li>
 <% else %>
  <li>
  <%= link_to('Login', new_user_session_path) %>

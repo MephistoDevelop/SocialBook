@@ -27,8 +27,7 @@ class UsersController < ApplicationController
   end
 
   def friend_requests
-    requestor = Friendship.where(requested_id: current_user.id).pluck(:requestor_id)
-    User.find(requestor[0])
+    Friendship.where(requested_id: current_user.id)
   end
 
 end
