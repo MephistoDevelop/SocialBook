@@ -1,19 +1,20 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Integrations", type: :request do
-
+RSpec.describe 'Integrations', type: :request do
   it "signs me in and see user's email" do
-      @user=User.create(email: 'user@example.com', password: 'password')
-      @friend = User.create(email: 'user1@example.com', password: 'password')
-      visit '/users'
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      click_button 'Log in'
-      expect(page).to have_content 'user1@example.com'
+    @user = User.create(email: 'user@example.com', password: 'password')
+    @friend = User.create(email: 'user1@example.com', password: 'password')
+    visit '/users'
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
+    click_button 'Log in'
+    expect(page).to have_content 'user1@example.com'
   end
 
   it 'sends a friend request' do
-    @user=User.create(email: 'user@example.com', password: 'password')
+    @user = User.create(email: 'user@example.com', password: 'password')
     @friend = User.create(email: 'user1@example.com', password: 'password')
     visit '/users'
     fill_in 'user_email', with: @user.email
@@ -25,8 +26,8 @@ RSpec.describe "Integrations", type: :request do
   end
 
   it 'accepts a friend request' do
-    @user=User.create(username:'friend',email: 'user@example.com', password: 'password')
-    @friend = User.create(username:'friend2',email: 'user1@example.com', password: 'password')
+    @user = User.create(username: 'friend', email: 'user@example.com', password: 'password')
+    @friend = User.create(username: 'friend2', email: 'user1@example.com', password: 'password')
     visit '/users'
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
@@ -38,10 +39,7 @@ RSpec.describe "Integrations", type: :request do
     click_button 'Log in'
     expect(page).to have_content 'Friends requests: 1'
     click_link 'Friends requests: 1'
-    #click_button 'Accept Request'
+    # click_button 'Accept Request'
     expect(@friend.friends.size).eql?(1)
   end
-
-
 end
-

@@ -16,13 +16,11 @@ class User < ApplicationRecord
   has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
 
   def send_friend_request(user)
-    if self.id != user.id && !self.friend_requested?(user) #< ---- Si no se cumple, te regresa nil el metodo
-      self.friendships.build(requested_id: user.id).save
-    end
+    friendships.build(requested_id: user.id).save if id != user.id && !friend_requested?(user) # < ---- Si no se cumple, te regresa nil el metodo
   end
 
   def friend_requested?(user)
-    user.friend_requests.pluck(:requestor_id).include?(self.id)
+    user.friend_requests.pluck(:requestor_id).include?(id)
   end
 
   def accept_friend_request(user)
@@ -34,26 +32,26 @@ class User < ApplicationRecord
   end
 
   def friend_requests
-    Friendship.where(requested_id: self.id,friendship_status: nil)
+    Friendship.where(requested_id: id, friendship_status: nil)
   end
 
   def unfriend(user)
-    row = self.friends.where(requested_id: user.id).or(self.friends.where(requestor_id: user.id))
+    row = friends.where(requested_id: user.id).or(friends.where(requestor_id: user.id))
     Friendship.delete(row.ids)
   end
 
   def user_invited?(invited_user)
-    !invited_user.friend_requests.where(requestor_id: self.id).empty?
+    !invited_user.friend_requests.where(requestor_id: id).empty?
   end
 
   def friends
-    f=Friendship.where(friendship_status: true)
-   f.where(requested_id: self.id).or(f.where(requestor_id: self.id))
+    f = Friendship.where(friendship_status: true)
+    f.where(requested_id: id).or(f.where(requestor_id: id))
   end
 
   def we_are_friends?(friend)
-    f=Friendship.where(friendship_status: true)
-    q=f.where(requested_id: self.id).or(f.where(requestor_id: self.id))
+    f = Friendship.where(friendship_status: true)
+    q = f.where(requested_id: id).or(f.where(requestor_id: id))
     !q.where(requested_id: friend.id).or(f.where(requestor_id: friend.id)).map(&:friendship_status).empty?
   end
 end
