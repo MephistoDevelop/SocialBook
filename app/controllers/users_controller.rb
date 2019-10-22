@@ -14,8 +14,11 @@ class UsersController < ApplicationController
 
   def send_friend_request
     user=User.find(params[:user_id])
-    current_user.friendships.build(requested_id: user.id).save
-    flash[:success] = 'You sent a friend request'
+    if current_user.send_friend_request(user) != nil
+      flash[:success] = 'You sent a friend request'
+    else
+      flash[:danger] = 'Not a valid invitation'
+    end
     redirect_to user_root_path
   end
 
@@ -31,8 +34,8 @@ class UsersController < ApplicationController
   end
 
   def accept_friend
-    @user=User.find(params[:friend_o])
-    current_user.accept_friend_request(@user)
+    @friend=User.find(params[:friend_o])
+    current_user.accept_friend_request(@friend)
     redirect_to user_root_path
   end
 

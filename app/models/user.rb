@@ -16,7 +16,13 @@ class User < ApplicationRecord
   has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
 
   def send_friend_request(user)
-    self.friendships.build(requested_id: user.id).save
+    if self.id != user.id && !self.friend_requested?(user) #< ---- Si no se cumple, te regresa nil el metodo
+      self.friendships.build(requested_id: user.id).save
+    end
+  end
+
+  def friend_requested?(user)
+    user.friend_requests.pluck(:requestor_id).include?(self.id)
   end
 
   def accept_friend_request(user)
