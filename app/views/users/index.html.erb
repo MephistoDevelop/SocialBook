@@ -7,7 +7,7 @@
         <%= button_to 'Cancel Request', {:controller => "users", :action => "cancel_friend_request",:invited_id => user} , :method=>:post  %>
       <%else%>
         <% if current_user.we_are_friends?(user) %>
-            <%= button_to 'Delete Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
+            <%= button_to 'Delete Friend', {:controller => "users", :action => "delete_friend",:friend_d => user} , :method=>:post  %>
           <%else%>
             <%= button_to 'Add Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
         <%end%>

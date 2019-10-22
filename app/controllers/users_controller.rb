@@ -36,4 +36,9 @@ class UsersController < ApplicationController
     redirect_to user_root_path
   end
 
+  def delete_friend
+    @user=User.find(params[:friend_d])
+    current_user.unfriend(@user)
+    redirect_to user_root_path
+  end
 end
