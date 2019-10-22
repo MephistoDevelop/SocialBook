@@ -1,8 +1,27 @@
 <% @posts.each do |post| %>
   <% user = User.where(id: post.user_id) %>
   <br>
-  <%= post.content %> <br>
   <% user.each do |user| %>
-    User: <%= user.username %>
-  <% end %>
+    Post Author: <%= user.username %>
+  <% end %><br>
+   Reactions:
+  <%= post.likes %><br><br>
+  Content: <br>  <%= post.content %> <br><br>
+
+  <% post.comments.each do |comment| %>
+  comment author: <%= author_name(comment) %><br>
+    Comments: <br> <%= comment.content %><br>
+    <br>
+    <% end %>
+        <%= form_for @comment do |f|  %>
+    <%= f.hidden_field :post_id, :value => post.id %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
 <% end %>
+    <br>
+   <%= link_to  "View Post", post,id:"post-button" %>
+   <br>
+    ***********************************************************************************************************
+
+<% end %>
+***********************************************************************************************************

@@ -2,8 +2,26 @@
   <div class="container">
     <%= link_to "Fakebook", root_path%>
     <nav class="navbar">
-      <ul class="navbar-brand">
-        <li> <%= link_to 'Create post', new_post_path  %></li>
+      <ul class="navbar">
+      <% if user_signed_in? %>
+ <li class="nav-item">
+ <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+ </li>
+  <li>
+ <%= link_to('Users', user_root_path) %>
+ </li>
+   <li>
+ <%= link_to('Show Posts', posts_path) %>
+ </li>
+    <li class="nav-item"> <%= link_to 'Create post', new_post_path  %></li>
+<% else %>
+ <li>
+ <%= link_to('Login', new_user_session_path) %>
+ </li>
+ <li>
+ <%= link_to('Sign Up', new_user_registration_path) %>
+ </li>
+<% end %>
       </ul>
     </nav>
   </div>

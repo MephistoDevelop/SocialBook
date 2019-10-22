@@ -1,19 +1,29 @@
-example_id                                       | status  | run_time        |
------------------------------------------------- | ------- | --------------- |
-./spec/controllers/posts_controller_spec.rb[1:1] | passed  | 0.00458 seconds |
-./spec/controllers/posts_controller_spec.rb[1:2] | passed  | 0.00167 seconds |
-./spec/controllers/posts_controller_spec.rb[1:3] | passed  | 0.00552 seconds |
-./spec/controllers/users_controller_spec.rb[1:1] | passed  | 0.28241 seconds |
-./spec/models/user_spec.rb[1:1]                  | passed  | 0.00279 seconds |
-./spec/models/user_spec.rb[1:2]                  | passed  | 0.00702 seconds |
-./spec/models/user_spec.rb[1:3]                  | passed  | 0.00467 seconds |
-./spec/models/user_spec.rb[1:4]                  | passed  | 0.00501 seconds |
-./spec/models/user_spec.rb[1:5]                  | passed  | 0.00522 seconds |
-./spec/models/user_spec.rb[1:6]                  | passed  | 0.00467 seconds |
-./spec/views/posts/index.html.erb_spec.rb[1:1]   | passed  | 0.3334 seconds  |
-./spec/views/posts/new.html.erb_spec.rb[1:1]     | pending | 0.00001 seconds |
-./spec/views/posts/show.html.erb_spec.rb[1:1]    | pending | 0.00001 seconds |
-./spec/views/users/create.html.erb_spec.rb[1:1]  | pending | 0.00001 seconds |
-./spec/views/users/index.html.erb_spec.rb[1:1]   | passed  | 0.01714 seconds |
-./spec/views/users/new.html.erb_spec.rb[1:1]     | pending | 0.00002 seconds |
-./spec/views/users/show.html.erb_spec.rb[1:1]    | failed  | 0.00367 seconds |
+example_id                                          | status  | run_time        |
+--------------------------------------------------- | ------- | --------------- |
+./spec/controllers/comments_controller_spec.rb[1:1] | passed  | 0.04031 seconds |
+./spec/controllers/posts_controller_spec.rb[1:1]    | passed  | 0.00962 seconds |
+./spec/controllers/posts_controller_spec.rb[1:2]    | passed  | 0.00208 seconds |
+./spec/controllers/posts_controller_spec.rb[1:3]    | passed  | 0.00781 seconds |
+./spec/controllers/users_controller_spec.rb[1:1]    | passed  | 0.4072 seconds  |
+./spec/helpers/comments_helper_spec.rb[1:1]         | pending | 0.00002 seconds |
+./spec/models/comment_spec.rb[1:1]                  | passed  | 0.00607 seconds |
+./spec/models/comment_spec.rb[1:2]                  | passed  | 0.00603 seconds |
+./spec/models/post_spec.rb[1:1]                     | passed  | 0.00269 seconds |
+./spec/models/post_spec.rb[1:2]                     | passed  | 0.00237 seconds |
+./spec/models/post_spec.rb[1:3]                     | passed  | 0.00243 seconds |
+./spec/models/post_spec.rb[1:4]                     | passed  | 0.00432 seconds |
+./spec/models/reaction_spec.rb[1:1]                 | passed  | 0.00166 seconds |
+./spec/models/reaction_spec.rb[1:2]                 | passed  | 0.0085 seconds  |
+./spec/models/user_spec.rb[1:1]                     | passed  | 0.00657 seconds |
+./spec/models/user_spec.rb[1:2]                     | passed  | 0.00867 seconds |
+./spec/models/user_spec.rb[1:3]                     | passed  | 0.01041 seconds |
+./spec/models/user_spec.rb[1:4]                     | passed  | 0.01269 seconds |
+./spec/models/user_spec.rb[1:5]                     | passed  | 0.01042 seconds |
+./spec/models/user_spec.rb[1:6]                     | passed  | 0.01074 seconds |
+./spec/views/posts/index.html.erb_spec.rb[1:1]      | passed  | 0.1749 seconds  |
+./spec/views/posts/new.html.erb_spec.rb[1:1]        | pending | 0.00001 seconds |
+./spec/views/posts/show.html.erb_spec.rb[1:1]       | pending | 0.00001 seconds |
+./spec/views/users/create.html.erb_spec.rb[1:1]     | pending | 0.00001 seconds |
+./spec/views/users/index.html.erb_spec.rb[1:1]      | passed  | 0.0253 seconds  |
+./spec/views/users/new.html.erb_spec.rb[1:1]        | pending | 0.00002 seconds |
+./spec/views/users/show.html.erb_spec.rb[1:1]       | failed  | 0.00367 seconds |

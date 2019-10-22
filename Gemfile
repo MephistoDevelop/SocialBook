@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '>= 3.4.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails', '4.2.2'
 gem 'devise'
 gem 'factory_bot_rails'
