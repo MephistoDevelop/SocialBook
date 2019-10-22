@@ -1,11 +1,18 @@
 <div class="container">
   <% @user.each do |user|  %>
+    <% if current_user != user%>
      <p>Name:  <%= user.username %> </p> <br>
      <p>Email: <%= user.email %></p> <br>
      <% if current_user.user_invited?(user) %>
        <%= button_to 'Cancel Request', {:controller => "users", :action => "cancel_friend_request",:invited_id => user} , :method=>:post  %>
       <%else%>
-        <%= button_to 'Add Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
-      <%end%>
-  <% end%>
+      <%=  current_user.we_are_friends?(user) %>
+              <% if current_user.we_are_friends?(user) %>
+                 <%= button_to 'Delete Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
+              <%else%>
+                <%= button_to 'Add Friend', {:controller => "users", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
+               <%end%>
+       <%end%>
+   <% end%>
+    <%end%>
 </div>

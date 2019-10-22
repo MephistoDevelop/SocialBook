@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # validates :name, presence:true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  
+
   has_many :posts, dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_many :reactions
@@ -42,7 +42,12 @@ class User < ApplicationRecord
 
   def friends
     f=Friendship.where(friendship_status: true)
-    f.where(requested_id: self.id).or(f.where(requestor_id: self.id))
+   f.where(requested_id: self.id).or(f.where(requestor_id: self.id))
   end
 
+  def we_are_friends?(friend)
+    f=Friendship.where(friendship_status: true)
+    q=f.where(requested_id: self.id).or(f.where(requestor_id: self.id))
+    !q.where(requested_id: friend.id).or(f.where(requestor_id: friend.id)).map(&:friendship_status).empty?
+  end
 end
