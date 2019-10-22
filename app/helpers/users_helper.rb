@@ -15,4 +15,19 @@ module UsersHelper
   def have_request?(friend)
     !current_user.friend_requests.where(requestor_id:friend.id ).empty?
   end
+
+  def show_user_friends
+    friends = []
+    collection = current_user.friends
+    collection.each do |friendship|
+      if friendship.user_requestor.first.id != current_user.id
+        friends << friendship.user_requestor.first.username
+      else
+        friends << friendship.user_requested.first.username
+      end
+    end
+    friends
+  end
+    
 end
+

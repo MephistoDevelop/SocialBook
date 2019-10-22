@@ -9,8 +9,4 @@ class Friendship < ApplicationRecord
     def user_requested
         User.where(id: self.requested_id)
     end
-
-    def show_user_friends
-        self.user_requestor
-    end
 end
