@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/addfriend', to: 'users#send_friend_request', as: 'addfriend'
   post '/cancelfriend', to: 'users#cancel_friend_request', as: 'cancelfriend'
   get '/friendrequests', to: 'users#friend_requests', as: 'friendrequests'
-
+  post '/acceptfriend', to: 'users#accept_friend'
 
   devise_scope :user do
     root 'devise/sessions#new'

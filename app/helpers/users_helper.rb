@@ -7,4 +7,8 @@ module UsersHelper
   def display_friend_requests(friendship)
     User.find(friendship.requestor_id).username
   end
+
+  def accept_friend(friendship)
+    User.find(friendship.requestor_id).id
+  end
 end

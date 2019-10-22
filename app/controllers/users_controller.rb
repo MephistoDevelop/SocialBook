@@ -30,4 +30,10 @@ class UsersController < ApplicationController
     Friendship.where(requested_id: current_user.id)
   end
 
+  def accept_friend
+    @user=User.find(params[:friend_o])
+    current_user.accept_friend_request(@user)
+    redirect_to user_root_path
+  end
+
 end
