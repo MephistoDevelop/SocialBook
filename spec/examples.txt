@@ -1,5 +1,6 @@
 example_id                                          | status  | run_time        |
 --------------------------------------------------- | ------- | --------------- |
+
 ./spec/controllers/comments_controller_spec.rb[1:1] | passed  | 0.0405 seconds  |
 ./spec/controllers/posts_controller_spec.rb[1:1]    | passed  | 0.01036 seconds |
 ./spec/controllers/posts_controller_spec.rb[1:2]    | passed  | 0.00738 seconds |
@@ -29,5 +30,6 @@ example_id                                          | status  | run_time        
 ./spec/views/posts/show.html.erb_spec.rb[1:1]       | pending | 0.00001 seconds |
 ./spec/views/users/create.html.erb_spec.rb[1:1]     | pending | 0.00001 seconds |
 ./spec/views/users/index.html.erb_spec.rb[1:1]      | passed  | 0.04593 seconds |
+
 ./spec/views/users/new.html.erb_spec.rb[1:1]        | pending | 0.00002 seconds |
 ./spec/views/users/show.html.erb_spec.rb[1:1]       | failed  | 0.00367 seconds |

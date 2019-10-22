@@ -1,6 +1,19 @@
 <% @posts.each do |post| %>
   <% @post = post %>
   <% user = User.where(id: post.user_id) %>
+
+  <br>
+  <% user.each do |user| %>
+    Post Author: <%= user.username %>
+  <% end %><br>
+   Reactions:
+  <%= post.likes %><br><br>
+  Content: <br>  <%= post.content %> <br><br>
+
+  <% post.comments.each do |comment| %>
+  comment author: <%= author_name(comment) %><br>
+    Comments: <br> <%= comment.content %><br>
+
     <br>
     <% user.each do |user| %>
       Post Author: <%= user.username %>
@@ -15,6 +28,7 @@
       Comment: <br> <%= comment.content %><br>
       <br>
     <% end %>
+
    <%= form_for(@comment) do |f| %>
       <div class="field">
           <%= f.text_field :content %>
@@ -27,6 +41,7 @@
     <br>
     <%= link_to  "View Post", post,id:"post-button" %>
     <br>
+
     <br>
     ***********************************************************************************************************
 <% end %>
