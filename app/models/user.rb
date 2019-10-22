@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def friend_requests
-    Friendship.where(requested_id: self.id)
+    Friendship.where(requested_id: self.id,friendship_status: nil)
   end
 
   def unfriend(user)
