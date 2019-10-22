@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 
   def show; end
 
+  def show_friends
+    @friends=current_user.friends
+  end
+
   def send_friend_request
     user=User.find(params[:user_id])
     if current_user.send_friend_request(user) != nil

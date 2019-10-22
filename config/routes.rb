@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/friendrequests', to: 'users#friend_requests', as: 'friendrequests'
   post '/acceptfriend', to: 'users#accept_friend'
   post '/deletefriend', to: 'users#delete_friend'
+  get '/friends',to: 'users#show_friends'
   resources :comments,only: [:new,:create]
+
 
   devise_scope :user do
     root 'devise/sessions#new'
