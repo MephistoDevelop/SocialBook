@@ -43,6 +43,20 @@ FactoryBot.define do
       password_confirmation { 123_456 }
     end
 
+    trait :friendship_requestor do
+      username { 'friendship requestor' }
+      email { 'friendship_requestor@gmail.com' }
+      password { 123_456 }
+      password_confirmation { 123_456 }
+    end
+
+    trait :friendship_requested do
+      username { 'friendship requested' }
+      email { 'friendship_requested@gmail.com' }
+      password { 123_456 }
+      password_confirmation { 123_456 }
+    end
+
     trait :johny do
       username { 'johny' }
       email { 'johny@gmail.com' }
