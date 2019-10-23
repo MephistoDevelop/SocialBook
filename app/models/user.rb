@@ -40,6 +40,11 @@ class User < ApplicationRecord
     Friendship.delete(row.ids)
   end
 
+  def friends
+    f = Friendship.where(friendship_status: true)
+    f.where(requested_id: id).or(f.where(requestor_id: id))
+  end
+
   def we_are_friends?(friend)
     f = Friendship.where(friendship_status: true)
     q = f.where(requested_id: id).or(f.where(requestor_id: id))
