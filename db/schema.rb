@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191021205553) do
+ActiveRecord::Schema.define(version: 20191023205016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20191021205553) do
     t.boolean "friendship_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index "GREATEST(requestor_id, requested_id), LEAST(requestor_id, requested_id)", name: "index_friendships_on_interchangable_requestor_id_and_requested_", unique: true
+    t.index "LEAST(requestor_id, requested_id), GREATEST(requestor_id, requested_id)", name: "index_friendships_on_interchangable_requested_id_and_requestor_", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
