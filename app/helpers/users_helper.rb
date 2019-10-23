@@ -13,7 +13,7 @@ module UsersHelper
     User.find(friendship.requestor_id).id
   end
 
-  def have_request?(friend)
+  def request?(friend)
     !current_user.friend_requests.where(requestor_id: friend.id).empty?
   end
 
