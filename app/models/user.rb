@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
 
   def send_friend_request(user)
-    friendships.build(requested_id: user.id).save if id != user.id && !friend_requested?(user) # < ---- Si no se cumple, te regresa nil el metodo
+    friendships.build(requested_id: user.id).save
   end
 
   def friend_requested?(user)
@@ -38,15 +38,6 @@ class User < ApplicationRecord
   def unfriend(user)
     row = friends.where(requested_id: user.id).or(friends.where(requestor_id: user.id))
     Friendship.delete(row.ids)
-  end
-
-  def user_invited?(invited_user)
-    !invited_user.friend_requests.where(requestor_id: id).empty?
-  end
-
-  def friends
-    f = Friendship.where(friendship_status: true)
-    f.where(requested_id: id).or(f.where(requestor_id: id))
   end
 
   def we_are_friends?(friend)
