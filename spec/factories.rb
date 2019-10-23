@@ -38,7 +38,7 @@ FactoryBot.define do
 
     trait :checo do
       username { 'checo' }
-      email { 'checo@gmail.com' }
+      sequence(:email) { |n| "tester#{n}@example.com" }
       password { 123_456 }
       password_confirmation { 123_456 }
     end

@@ -11,8 +11,7 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def show_friends
-  end
+  def show_friends; end
 
   def send_friend_request
     user = User.find(params[:user_id])
