@@ -42,4 +42,12 @@ RSpec.describe 'Integrations', type: :request do
     # click_button 'Accept Request'
     expect(@friend.friends.size).eql?(1)
   end
+
+  it 'send successfully a friend request' do
+    @user1 = create(:user, :ines)
+    @user2 = create(:user, :checo)
+    expect(@user2.friend_requests.size).to eq(0)
+    @user1.send_friend_request(@user2)
+    expect(@user2.friend_requests.size).to eq(1)
+  end
 end
