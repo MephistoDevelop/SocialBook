@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
 
   def send_friend_request(user)
-    friendships.build(requested_id: user.id).save if id != user.id
+    friendships.build(requested_id: user.id).save if self.id != user.id
   end
 
   def friend_requested?(user)
