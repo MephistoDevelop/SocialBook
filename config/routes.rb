@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   get 'reactions/new' => 'reactions#new'
   post 'reactions/new' => 'reactions#create'
   post '/addlike', to: 'posts#add_like', as: 'addlike'
-  resources :comments, only: [:create, :new]
+
+  post '/addfriend', to: 'users#send_friend_request', as: 'addfriend'
+  post '/cancelfriend', to: 'users#cancel_friend_request', as: 'cancelfriend'
+  get '/friendrequests', to: 'users#friend_requests', as: 'friendrequests'
+  post '/acceptfriend', to: 'users#accept_friend'
+  post '/deletefriend', to: 'users#delete_friend'
+  get '/friends',to: 'users#show_friends'
+  resources :comments,only: [:new,:create]
+
 
 
   devise_scope :user do

@@ -31,14 +31,28 @@ FactoryBot.define do
 
     trait :ines do
       username { 'Ines' }
-      email { 'ines@gmail.com' }
+      sequence(:email) { |n| "tester_ines#{n}@example.com" }
       password { 123_456 }
       password_confirmation { 123_456 }
     end
 
     trait :checo do
       username { 'checo' }
-      email { 'checo@gmail.com' }
+      sequence(:email) { |n| "tester#{n}@example.com" }
+      password { 123_456 }
+      password_confirmation { 123_456 }
+    end
+
+    trait :friendship_requestor do
+      username { 'friendship requestor' }
+      email { 'friendship_requestor@gmail.com' }
+      password { 123_456 }
+      password_confirmation { 123_456 }
+    end
+
+    trait :friendship_requested do
+      username { 'friendship requested' }
+      email { 'friendship_requested@gmail.com' }
       password { 123_456 }
       password_confirmation { 123_456 }
     end

@@ -2,12 +2,21 @@ Author: <%=post_author(@post) %><br><br>
 User reactions: <%= @post.likes %>
 <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
  <br><br>
-Content: <%= @post.content %> <br><br>
-<br>
-<br>
-Comments Sections:<br><br><br>
+Content: <br> <%= @post.content %> <br><br>
+Comments Sections:<br><br>
 <% @post.comments.each do |comment| %>
- <div>Author: <%=comment_author(comment) %><br> <%= comment.content %></div>
-<br><br>
+
+ <div>Author: <%=User.where(id: comment.author_id).pluck(:username)[0] %><br> <%= comment.content %></div>
+<br>
+
 <% end %>
+<%= form_for(@comment) do |f| %>
+      <div class="field">
+          <%= f.text_field :content %>
+          <%= f.hidden_field :id, :value=>@post.id %>
+      </div>
+      <div class="actions">
+          <%= f.submit "Comment" %>
+      </div>
+    <%end %>
 
