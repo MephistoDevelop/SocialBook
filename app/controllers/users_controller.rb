@@ -12,8 +12,4 @@ class UsersController < ApplicationController
   def show; end
 
   def show_friends; end
-
-  def friend_requests
-    Friendship.where(requested_id: current_user.id)
-  end
 end

@@ -29,4 +29,8 @@ class FriendshipsController < ApplicationController
     current_user.unfriend(@user)
     redirect_to user_root_path
   end
+
+  def friend_requests
+    current_user.pending_requests
+  end
 end
