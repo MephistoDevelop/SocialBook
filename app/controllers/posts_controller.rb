@@ -2,7 +2,7 @@
 
 class PostsController < ApplicationController
   def index
-    ids =  current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
+    ids = current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
     @posts = Post.where(user_id: ids)
     @comment = Comment.new
   end

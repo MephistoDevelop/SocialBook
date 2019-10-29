@@ -16,5 +16,4 @@ class UsersController < ApplicationController
   def friend_requests
     Friendship.where(requested_id: current_user.id)
   end
-
 end
