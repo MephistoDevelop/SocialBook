@@ -47,8 +47,6 @@ class User < ApplicationRecord
   end
 
   def we_are_friends?(friend)
-    f = Friendship.where(friendship_status: true)
-    q = f.where(requested_id: id).or(f.where(requestor_id: id))
-    !q.where(requested_id: friend.id).or(f.where(requestor_id: friend.id)).map(&:friendship_status).empty?
+   friends.include?(friend)
   end
 end
