@@ -19,7 +19,12 @@ class User < ApplicationRecord
   has_many :followeds, through: :inverse_friendships, source: 'requestor'
   has_many :pending_requests, -> {where friendship_status: nil}, foreign_key: 'requested_id', source: 'requested', class_name: 'Friendship'
   has_many :pending_friends, through: :pending_requests, source: 'requestor'
-  
+
+  def friends
+    ids = followeds.pluck(:id) + followers.pluck(:id)
+    User.where(id: ids)
+  end
+
   def send_friend_request(user)
     friendships.build(requested_id: user.id).save if id != user.id
   end
@@ -43,11 +48,6 @@ class User < ApplicationRecord
   def unfriend(user)
     row = friends.where(requested_id: user.id).or(friends.where(requestor_id: user.id))
     Friendship.delete(row.ids)
-  end
-
-  def friends
-    f = Friendship.where(friendship_status: true)
-    f.where(requested_id: id).or(f.where(requestor_id: id))
   end
 
   def we_are_friends?(friend)
