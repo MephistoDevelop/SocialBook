@@ -26,28 +26,24 @@ class User < ApplicationRecord
   end
 
   def send_friend_request(user)
-    friendships.build(requested_id: user.id).save if id != user.id
+    friendships.build(requested_id: user.id, friendship_status: nil).save if id != user.id
   end
 
   def friend_requested?(user)
-    user.friend_requests.pluck(:requestor_id).include?(id)
+    user.pending_requests.pluck(:requestor_id).include?(id)
   end
 
   def accept_friend_request(user)
-    friend_requests.where(requestor_id: user.id).update(friendship_status: true)
+    pending_requests.where(requestor_id: user.id).update(friendship_status: true)
   end
 
   def deny_friend_request(user)
-    friend_requests.where(requestor_id: user.id).delete_all
-  end
-
-  def friend_requests
-    Friendship.where(requested_id: id, friendship_status: nil)
+    pending_requests.where(requestor_id: user.id).delete_all
   end
 
   def unfriend(user)
-    row = friends.where(requested_id: user.id).or(friends.where(requestor_id: user.id))
-    Friendship.delete(row.ids)
+    table = friendships.where(requested_id: user.id).or(inverse_friendships.where(requestor_id: user.id)).ids
+    Friendship.delete(table.first)
   end
 
   def we_are_friends?(friend)
