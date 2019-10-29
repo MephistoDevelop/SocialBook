@@ -12,9 +12,14 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_many :reactions
-  has_many :friendships, foreign_key: 'requestor_id', dependent: :destroy
-  has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
 
+  has_many :friendships,-> {where friendship_status: true}, foreign_key: 'requestor_id', dependent: :destroy
+  has_many :inverse_friendships,-> {where friendship_status: true}, foreign_key: 'requested_id', class_name: 'Friendship'
+  has_many :followers, through: :friendships, source: 'requested'
+  has_many :followeds, through: :inverse_friendships, source: 'requestor'
+  has_many :pending_requests, -> {where friendship_status: nil}, foreign_key: 'requested_id', source: 'requested', class_name: 'Friendship'
+  has_many :pending_friends, through: :pending_requests, source: 'requestor'
+  
   def send_friend_request(user)
     friendships.build(requested_id: user.id).save if id != user.id
   end
