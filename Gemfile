@@ -17,6 +17,7 @@ gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'omniauth-facebook'
 gem "figaro"
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # gem 'pg', '0.20.0'

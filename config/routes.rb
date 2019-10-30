@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/show'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get '/auth/facebook/callback', to: 'sessions#create'
+  get '/users/auth/failure', :to => 'users/omniauth#failure'
   get '/users' => 'users#index', as: :user_root # creates user_root_path
   get 'reactions/new' => 'reactions#new'
   post 'reactions/new' => 'reactions#create'

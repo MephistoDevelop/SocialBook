@@ -6,6 +6,18 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  def create
+    super
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to '/'
+  end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
   # POST /resource/sign_in
   # def create
   #   super
