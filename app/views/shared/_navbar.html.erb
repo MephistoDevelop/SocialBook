@@ -11,13 +11,13 @@
  <%= link_to('Users', user_root_path) %>
  </li>
    <li>
-    <%= link_to('Friends', friends_path) %>
+    <%= link_to("Friends(#{current_user.friends.size})", friends_path) %>
   </li>
    <li>
  <%= link_to('Show Posts', posts_path) %>
  </li>
     <li class="nav-item"> <%= link_to 'Create post', new_post_path  %></li>
-    <li class="nav-item"> <%= link_to "Friends  requests: #{friends_request_number} ",  friendrequests_path  %> </li>
+    <li class="nav-item"> <%= link_to "Friends  requests(#{current_user.pending_requests.size})",  friendrequests_path  %> </li>
  <li class="nav-item">
  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
  </li>

@@ -1,8 +1,0 @@
-<% current_user.friend_requests.each do |friendship| %>
-  <% if current_user.friends%>
-  <%= display_friend_requests(friendship) %>
-    <%= button_to 'Accept  Request', {:controller => "users",:friend_o => accept_friend_now(friendship), :action => "accept_friend"} , :method=>:post  %>
-  <% else%>
-      <h4>You don't have friends Request !</h4>
-  <% end %>
-  <% end %>

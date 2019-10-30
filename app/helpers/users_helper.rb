@@ -2,7 +2,7 @@
 
 module UsersHelper
   def user_invited?(invited_user)
-    invited_user.friend_requests.where(requestor_id: current_user.id).empty?
+    invited_user.pending_requests.where(requestor_id: current_user.id).empty?
   end
 
   def display_friend_requests(friendship)
@@ -14,19 +14,10 @@ module UsersHelper
   end
 
   def request?(friend)
-    !current_user.friend_requests.where(requestor_id: friend.id).empty?
+    !current_user.pending_requests.where(requestor_id: friend.id).empty?
   end
 
   def show_user_friends
-    friends = []
-    collection = current_user.friends
-    collection.each do |friendship|
-      friends << if friendship.user_requestor.first.id != current_user.id
-                   friendship.user_requestor.first.username
-                 else
-                   friendship.user_requested.first.username
-                 end
-    end
-    friends
+    current_user.friends.pluck(:username)
   end
 end

@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   post 'reactions/new' => 'reactions#create'
   post '/addlike', to: 'posts#add_like', as: 'addlike'
 
-  post '/addfriend', to: 'users#send_friend_request', as: 'addfriend'
-  post '/cancelfriend', to: 'users#cancel_friend_request', as: 'cancelfriend'
-  get '/friendrequests', to: 'users#friend_requests', as: 'friendrequests'
-  post '/acceptfriend', to: 'users#accept_friend'
-  post '/deletefriend', to: 'users#delete_friend'
+  post '/addfriend', to: 'friendships#send_friend_request', as: 'addfriend'
+  post '/cancelfriend', to: 'friendships#cancel_friend_request', as: 'cancelfriend'
+  get '/friendrequests', to: 'friendships#friend_requests', as: 'friendrequests'
+  post '/acceptfriend', to: 'friendships#accept_friend'
+  post '/deletefriend', to: 'friendships#delete_friend'
   get '/friends',to: 'users#show_friends'
   resources :comments,only: [:new,:create]
 

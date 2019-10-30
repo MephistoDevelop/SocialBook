@@ -12,42 +12,41 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_many :reactions
-  has_many :friendships, foreign_key: 'requestor_id', dependent: :destroy
-  has_many :requesteds, through: :friendships, foreign_key: 'requested_id', dependent: :destroy
+
+  has_many :friendships, -> { where friendship_status: true }, foreign_key: 'requestor_id', dependent: :destroy
+  has_many :inverse_friendships, -> { where friendship_status: true }, foreign_key: 'requested_id', class_name: 'Friendship'
+  has_many :followers, through: :friendships, source: 'requested'
+  has_many :followeds, through: :inverse_friendships, source: 'requestor'
+  has_many :pending_requests, -> { where friendship_status: nil }, foreign_key: 'requested_id', source: 'requested', class_name: 'Friendship'
+  has_many :pending_friends, through: :pending_requests, source: 'requestor'
+
+  def friends
+    ids = followeds.pluck(:id) + followers.pluck(:id)
+    User.where(id: ids)
+  end
 
   def send_friend_request(user)
-    friendships.build(requested_id: user.id).save if id != user.id
+    friendships.build(requested_id: user.id, friendship_status: nil).save if id != user.id
   end
 
   def friend_requested?(user)
-    user.friend_requests.pluck(:requestor_id).include?(id)
+    user.pending_requests.pluck(:requestor_id).include?(id)
   end
 
   def accept_friend_request(user)
-    friend_requests.where(requestor_id: user.id).update(friendship_status: true)
+    pending_requests.where(requestor_id: user.id).update(friendship_status: true)
   end
 
   def deny_friend_request(user)
-    friend_requests.where(requestor_id: user.id).delete_all
-  end
-
-  def friend_requests
-    Friendship.where(requested_id: id, friendship_status: nil)
+    pending_requests.where(requestor_id: user.id).delete_all
   end
 
   def unfriend(user)
-    row = friends.where(requested_id: user.id).or(friends.where(requestor_id: user.id))
-    Friendship.delete(row.ids)
-  end
-
-  def friends
-    f = Friendship.where(friendship_status: true)
-    f.where(requested_id: id).or(f.where(requestor_id: id))
+    table = friendships.where(requested_id: user.id).or(inverse_friendships.where(requestor_id: user.id)).ids
+    Friendship.delete(table.first)
   end
 
   def we_are_friends?(friend)
-    f = Friendship.where(friendship_status: true)
-    q = f.where(requested_id: id).or(f.where(requestor_id: id))
-    !q.where(requested_id: friend.id).or(f.where(requestor_id: friend.id)).map(&:friendship_status).empty?
+    friends.include?(friend)
   end
 end
