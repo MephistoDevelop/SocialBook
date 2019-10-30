@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
 
   def cancel_friend_request
     user = User.find(params[:invited_id])
-    user. friend_requests.where(requestor_id: current_user.id).delete_all
+    user. pending_requests.where(requestor_id: current_user.id).delete_all
     flash[:danger] = 'Invitation destroyed'
     redirect_to user_root_path
   end
