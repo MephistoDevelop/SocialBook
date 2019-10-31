@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create; end
 
   def show
-    @users=User.all
+    @users = User.all
   end
 
   def show_friends; end

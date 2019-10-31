@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[username email password password_confirmation])
   end
 
-  def new_session_path(scope)
+  def new_session_path(_scope)
     new_user_session_path
   end
 end
