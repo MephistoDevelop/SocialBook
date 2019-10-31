@@ -5,10 +5,10 @@
       <ul class="navbar">
       <% if user_signed_in? %>
  <li>
- <%= link_to("Hello, #{current_user.username}", user_root_path) %>
+ <%= link_to("Hello, #{current_user.username}", users_show_path) %>
  </li>
   <li>
- <%= link_to('Users', user_root_path) %>
+ <%= link_to('Users', users_show_path) %>
  </li>
    <li>
     <%= link_to("Friends(#{current_user.friends.size})", friends_path) %>

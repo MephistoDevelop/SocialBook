@@ -2,10 +2,17 @@
 
 class PostsController < ApplicationController
   def index
-    current_user=User.find(1)
-        ids = current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
+    puts "Soy la session del form: #{session["login_form"]} <---"
+    puts "Soy current user: #{User.where(id: session["user_id"]).first}, y y soy  current_user: #{current_user}"
+    puts "Yo soy omiauth_login: #{session["omniauth_login"]}"
+    puts "Soy la sesion !!! : #{session.to_hash}"
+    current_user=User.where(id: session["user_id"]).first if session["omniauth_login"] == true
+     current_user=User.find(session["warden.user.user.key"].first.first)
+      session["user_id"]=current_user.id
+      ids = current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
     @posts = Post.where(user_id: ids)
     @comment = Comment.new
+
   end
 
   def new
