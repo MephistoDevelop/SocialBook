@@ -6,12 +6,22 @@
 
 a {
   color: whitesmoke;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bolder;
+}
+
+span a {
+  color: black !important;
+}
+
+body div.container {
+  margin-top: 10px;
 }
 
 ul {
   list-style: none;
+  height: 100%;
+  margin-bottom: 0px;
 }
 li {
   margin: 10px;

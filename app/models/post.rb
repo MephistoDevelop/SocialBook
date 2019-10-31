@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :reactions
 
+  default_scope { order(created_at: :desc)}
   def likes
     reactions.size
   end
