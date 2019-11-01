@@ -5,12 +5,10 @@ Rails.application.routes.draw do
   get 'users/show'
 
 
-  get 'users/index', to: 'users#index'
+  get 'users', to: 'users#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #get '/users' => 'users#index', as: :user_root # creates user_root_path -> LINEA ELIMINADA
   root to: 'posts#index'
-
-
  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 #  get '/auth/facebook/callback', to: 'sessions#create'
   get '/users/auth/failure', :to => 'users/omniauth#failure'

@@ -46,8 +46,8 @@ RSpec.describe 'Integrations', type: :request do
   it 'send successfully a friend request' do
     @user1 = create(:user, :ines)
     @user2 = create(:user, :checo)
-    expect(@user2.friend_requests.size).to eq(0)
+    expect(@user2.pending_requests.size).to eq(0)
     @user1.send_friend_request(@user2)
-    expect(@user2.friend_requests.size).to eq(0)
+    expect(@user2.pending_requests.size).to eq(0)
   end
 end

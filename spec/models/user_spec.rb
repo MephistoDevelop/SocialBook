@@ -11,18 +11,12 @@ RSpec.describe User, type: :model do
 
   it 'test the method send_friend_request' do
     @user1.send_friend_request(@user2)
-    expect(@user2.friend_requests.first.id).to eq(Friendship.where(requested_id: @user2.id).ids.first)
+    expect(@user1.friend_requested?(@user2)).to be_truthy
   end
 
   it 'test the method friend_requested' do
     @user1.send_friend_request(@user2)
     expect(@user1.friend_requested?(@user2)).to be_truthy
-  end
-
-  it 'test the method friend_requests' do
-    expect(@user2.friend_requests.size).to eq(0)
-    @user1.send_friend_request(@user2)
-    expect(@user2.friend_requests.size).to eq(0)
   end
 
   it 'test the method friends' do

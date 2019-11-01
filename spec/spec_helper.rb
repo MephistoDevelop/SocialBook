@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-#require "spec/support/omniauth_test_helper.rb"
+require 'omniauth_test_helper'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

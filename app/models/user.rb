@@ -34,10 +34,6 @@ class User < ApplicationRecord
     user.pending_requests.pluck(:requestor_id).include?(id)
   end
 
-  def friend_requests
-    pending_requests
-  end
-
   def accept_friend_request(user)
     pending_requests.where(requestor_id: user.id).update(friendship_status: true)
   end

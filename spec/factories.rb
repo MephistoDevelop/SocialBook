@@ -4,6 +4,8 @@ FactoryBot.define do
     post_id { 1 }
     user_id { 1 }
     user_reaction { 'MyString' }
+    association :user
+    association :post
   end
 
   factory :user do
@@ -74,7 +76,7 @@ FactoryBot.define do
   factory :post do
     trait :post_controller do
       content { 'Event created from factoryBot post_controller' }
-      user_id { 1 }
+      association :user
     end
 
     trait :post_user do
