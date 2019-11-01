@@ -10,7 +10,9 @@
         Post Author: <%= user.username %>
       <% end %><br>
     Reactions:
-    <%= post.likes %><br><br>
+    <%= post.likes %>
+      <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
+      <br><br>
     Content: <br>  <%= post.content %> <br><br>
 
     <h4>Comments section</h4>

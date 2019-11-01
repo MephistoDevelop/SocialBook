@@ -3,7 +3,7 @@
     <br>
     <h5>Author: </h5> <%=post_author(@post) %><br><br>
     <h5>User reactions: <%= @post.likes %></h5>
-    <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
+    <%= button_to 'Like', {:controller => "posts", :action => "add_like_post", :post_id => @post.id, } , :method=>:post  %>
     <br>
     <h5>Content:</h5> <%= @post.content %> <br><br>
     Comments Section:<br><br>
