@@ -4,8 +4,8 @@ FactoryBot.define do
     post_id { 1 }
     user_id { 1 }
     user_reaction { 'MyString' }
-    association :user
     association :post
+    user{post.user}
   end
 
   factory :user do

@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Reaction, type: :model do
   before(:all) do
     @user = create(:user, :reactor)
-    @post = create(:post, :post_user)
+    @post = create(:post, :post_controller)
     @reaction = @user.reactions.build
     @reaction.post_id = @post.id
   end

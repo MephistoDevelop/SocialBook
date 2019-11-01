@@ -9,7 +9,7 @@ RSpec.describe PostsController, type: :controller do
     fill_in 'user_email', with: @user1.email
     fill_in 'user_password', with: @user1.password
     click_button 'Log in'
-    @post = create(:post, :event1)
+    @post = create(:post, :post_controller)
   end
 
   it 'index return all posts' do
