@@ -4,11 +4,8 @@
     ***********************************************************************************************************
     <% @posts.each do |post| %>
       <% @post = post %>
-      <% user = User.where(id: post.user_id) %>
-      <br>
-      <% user.each do |user| %>
-        Post Author: <%= user.username %>
-      <% end %><br>
+        Post Author: <%= post_author(post) %>
+<br>
     Reactions:
     <%= post.likes %>
       <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
