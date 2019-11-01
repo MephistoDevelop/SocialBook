@@ -14,14 +14,14 @@ RSpec.describe 'Integrations', type: :request do
   end
 
   it 'sends a friend request' do
-    @user = User.create(username: "user1" ,email: 'user@example.com', password: 'password')
-    @friend = User.create(username: "user2" ,email: 'user1@example.com', password: 'password')
+    @user = User.create(username: 'user1', email: 'user@example.com', password: 'password')
+    @friend = User.create(username: 'user2', email: 'user1@example.com', password: 'password')
     visit '/users/show'
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Log in'
     expect(page).to have_content 'user1@example.com'
-    click_on "Add Friend user2"
+    click_on 'Add Friend user2'
     expect(@friend.friendships.size).eql?(1)
   end
 
@@ -32,7 +32,7 @@ RSpec.describe 'Integrations', type: :request do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: @user.password
     click_button 'Log in'
-    click_on "Add Friend friend2"
+    click_on 'Add Friend friend2'
     click_link 'Logout'
     fill_in 'user_email', with: @friend.email
     fill_in 'user_password', with: @friend.password

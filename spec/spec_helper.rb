@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'omniauth_test_helper'
 
 RSpec.configure do |config|
@@ -8,8 +9,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-
-
 
   # config.before(:all) do
   # FactoryBot.reload
@@ -23,5 +22,4 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
   # config.profile_examples = 10
-
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 FactoryBot.define do
   factory :reaction do
@@ -5,7 +6,7 @@ FactoryBot.define do
     user_id { 1 }
     user_reaction { 'MyString' }
     association :post
-    user{post.user}
+    user { post.user }
   end
 
   factory :user do

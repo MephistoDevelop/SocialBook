@@ -51,7 +51,6 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
 
-
   # Turn on "test mode" for OmniAuth
   OmniAuth.config.test_mode = true
 
