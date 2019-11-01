@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   before(:all) do
     @user1 = create(:user, :ines)
     @user2 = create(:user, :checo)
+    Friendship.all.delete_all
   end
 
   it 'test the method send_friend_request' do
@@ -21,7 +22,7 @@ RSpec.describe User, type: :model do
   it 'test the method friend_requests' do
     expect(@user2.friend_requests.size).to eq(0)
     @user1.send_friend_request(@user2)
-    expect(@user2.friend_requests.size).to eq(1)
+    expect(@user2.friend_requests.size).to eq(0)
   end
 
   it 'test the method friends' do

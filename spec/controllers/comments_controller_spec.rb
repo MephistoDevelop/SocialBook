@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe CommentsController, type: :controller do
   before(:all) do
     @user1 = create(:user, :controller_comments)
-    visit('/users')
+    visit('/users/index')
     fill_in 'user_email', with: @user1.email
     fill_in 'user_password', with: @user1.password
     click_button 'Log in'

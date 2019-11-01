@@ -10,7 +10,7 @@
      <%elsif current_user.we_are_friends?(user) %>
           <%= button_to "Delete Friend #{user.username}", {:controller => "friendships", :action => "delete_friend",:friend_d => user} , :method=>:post  %>
           <%elsif request?(user)%>
-          <%= button_to 'Accept  Request', {:controller => "friendships",:friend_o =>user.id, :action => "accept_friend"} , :method=>:post  %>
+          <%= button_to 'Accept  Request', {:id=> "addbutton",:controller => "friendships",:friend_o =>user.id, :action => "accept_friend"} , :method=>:post  %>
           <%else%>
             <%= button_to "Add Friend #{user.username}", {:controller => "friendships", :action => "send_friend_request",:user_id => user} , :method=>:post  %>
     <%end%>

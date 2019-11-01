@@ -1,13 +1,15 @@
 # frozen_string_literal: true
+#require "spec/support/omniauth_test_helper.rb"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
-
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+
 
   # config.before(:all) do
   # FactoryBot.reload
@@ -21,4 +23,5 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
   # config.profile_examples = 10
+
 end
