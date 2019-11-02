@@ -11,8 +11,8 @@ Devise.setup do |config|
   # config.secret_key = '423d255ebb1bf909425c94aa0f33f301ac39564c2a170ab69b8ca8230972ca1dd924b2ec7b41e46abd21dea7e766c42c7826108e8fe930005064d974450d4275'
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_ID'],
                   client_options: {
-                    site: 'https://graph.facebook.com/v2.6',
-                    authorize_url: 'https://www.facebook.com/v2.6/dialog/oauth',
+                    site: 'https://graph.facebook.com/v4.0',
+                    authorize_url: 'https://www.facebook.com/v4.0/dialog/oauth',
                     token_url: 'oauth/access_token'
                   },
                   token_params: { parse: :json },
