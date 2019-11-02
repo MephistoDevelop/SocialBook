@@ -3,7 +3,11 @@
   <br>
   <% @users.each do |user|%>
    <% if user != current_user%>
-      <h6>Name: <%= user.username%></h6>
+      <% if  user.username == nil%>
+           <h6>Name: <%= user.name%></h6>
+      <%else%>
+        <h6>Name: <%= user.username%></h6>
+      <%end%>
      <h6>Mail: <%= user.email%></h6>
      <% if current_user.friend_requested?(user) %>
         <%= button_to 'Cancel Request', {:controller => "friendships", :action => "cancel_friend_request",:invited_id => user} , :method=>:post  %>

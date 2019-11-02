@@ -15,7 +15,7 @@
 
     <h4>Comments section</h4>
     <% post.comments.each do |comment| %>
-      comment author: <%= author_name(comment) %><br>
+      comment author: <%= comment_author(comment) %><br>
       Comment: <br> <%= comment.content %><br>
       <br>
       <br>

@@ -8,7 +8,7 @@
     <h5>Content:</h5> <%= @post.content %> <br><br>
     Comments Section:<br><br>
     <% @post.comments.each do |comment| %>
-        <div>Author: <%=User.where(id: comment.author_id).pluck(:username)[0] %><br> <%= comment.content %></div>
+        <div>Author: <%=comment_author(comment) %><br> <%= comment.content %></div>
         <br>
     <% end %>
     <%= form_for(@comment) do |f| %>

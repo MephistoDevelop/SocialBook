@@ -1,4 +1,8 @@
 <div class="container">
-          Friends: <br>
-          <%= show_user_friends %>
+       <h3>   Friends:</h3> <br>
+          <% show_user_friends.each do |name|  %>
+                  <h5>Username: <%= name%></h5>
+                  <h5>Email:: <%= search_friend_email(name)%></h5>
+                  <br>
+          <%end%>
 </div>
