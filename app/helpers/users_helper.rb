@@ -18,6 +18,7 @@ module UsersHelper
   end
 
   def show_user_friends
-    current_user.friends.pluck(:username)
+    q=current_user.friends.pluck(:username)
+    return current_user.friends.pluck(:name) if  q.nil?
   end
 end

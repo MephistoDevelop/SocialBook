@@ -6,7 +6,12 @@ module PostsHelper
   end
 
   def post_author(post)
-    User.where(id: post.user_id).pluck(:username)[0]
+   q= User.where(id: post.user_id).pluck(:username)[0]
+    if q != nil
+        return q
+    else
+      return User.where(id: post.user_id).pluck(:name)[0]
+    end
   end
 
   def comment_author(comment)
