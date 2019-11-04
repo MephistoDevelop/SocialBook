@@ -4,12 +4,12 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   before(:all) do
-    @user1 = create(:user, :checo)
+    @user1 = create(:user)
     visit('/users')
     fill_in 'user_email', with: @user1.email
     fill_in 'user_password', with: @user1.password
     click_button 'Log in'
-    @post = create(:post, :post_controller)
+    @post = create(:post)
   end
 
   it 'index return all posts' do
@@ -22,7 +22,7 @@ RSpec.describe PostsController, type: :controller do
   end
 
   it 'show post after created it' do
-    @post2 = create(:post, :post_controller)
+    @post2 = create(:post)
     redirect_to(action: 'show')
   end
 end

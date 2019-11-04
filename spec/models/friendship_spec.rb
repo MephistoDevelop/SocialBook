@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
   before(:all) do
-    @user = create(:user, :checo)
-    @user2 = create(:user, :ines)
+    @user = create(:user)
+    @user2 = create(:user)
     @user.send_friend_request(@user2)
   end
 
