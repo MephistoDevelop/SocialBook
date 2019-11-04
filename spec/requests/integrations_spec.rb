@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Integrations', type: :request do
+
   let(:user) { create(:user) }
   let(:friend) { create(:user) }
 
@@ -37,8 +38,10 @@ RSpec.describe 'Integrations', type: :request do
   end
 
   it 'log in with facebook' do
-    visit '/users/show'
-    click_link 'Sign in with Facebook'
-    expect(page).to have_content 'Logout'
+  user =create(:user)
+  post '/users/auth/facebook/callback', params: {name: user.name, email: user.email}
+  session["user_id"]=user.id
+  expect(@response.cookies[Rails.application.config.session_options[:key]].nil?).to eql(false)
+  assert_equal user.id, session[:user_id]
   end
 end
