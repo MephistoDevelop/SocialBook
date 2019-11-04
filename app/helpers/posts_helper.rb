@@ -6,9 +6,9 @@ module PostsHelper
   end
 
   def post_author(post)
-   q= User.where(id: post.user_id).pluck(:username)[0]
-    if q != nil
-        return q
+    q = User.where(id: post.user_id).pluck(:username)[0]
+    if !q.nil?
+      return q
     else
       return User.where(id: post.user_id).pluck(:name)[0]
     end
@@ -17,7 +17,7 @@ module PostsHelper
   def comment_author(comment)
     q = User.where(id: comment.author_id).pluck(:username)[0]
     if q.nil?
-        return User.where(id: comment.author_id).pluck(:name)[0]
+      return User.where(id: comment.author_id).pluck(:name)[0]
     else
       return q
     end

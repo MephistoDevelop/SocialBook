@@ -6,10 +6,10 @@ module ApplicationHelper
   end
 
   def set_name
-    if current_user.username != nil
-      return current_user.username
+    if !current_user.username.nil?
+      current_user.username
     else
-      return current_user.name
+      current_user.name
     end
   end
 end

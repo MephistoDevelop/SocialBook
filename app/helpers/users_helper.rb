@@ -18,13 +18,13 @@ module UsersHelper
   end
 
   def show_user_friends
-    names=current_user.friends.map{ |user| user.name }
-    usernames=current_user.friends.map{ |user| user.username }
-      return (names + usernames).compact
+    names = current_user.friends.map(&:name)
+    usernames = current_user.friends.map(&:username)
+    (names + usernames).compact
   end
 
   def search_friend_email(name)
-    q=current_user.friends.where(username: name).first
+    q = current_user.friends.where(username: name).first
     if q.nil?
       return current_user.friends.where(name: name).first.email
     else
