@@ -41,7 +41,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (8.0.0)
-    autoprefixer-rails (9.7.0)
+    autoprefixer-rails (9.7.1)
       execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
@@ -102,6 +102,10 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (2.2.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -119,7 +123,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.2)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.2)
       faraday (>= 0.8, < 2.0)
@@ -272,6 +276,8 @@ DEPENDENCIES
   figaro
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
+  launchy
+  letter_opener
   listen (= 3.1.5)
   omniauth-facebook
   omniauth-google-oauth2
