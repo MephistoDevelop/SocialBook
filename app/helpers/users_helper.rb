@@ -25,10 +25,7 @@ module UsersHelper
 
   def search_friend_email(name)
     q = current_user.friends.where(username: name).first
-    if q.nil?
-      return current_user.friends.where(name: name).first.email
-    else
-      return q.email
-    end
+    return current_user.friends.where(name: name).first.email if q.nil?
+    return q.email unless q.nil?
   end
 end
