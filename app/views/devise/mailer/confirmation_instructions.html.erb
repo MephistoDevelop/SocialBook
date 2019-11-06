@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div class="card">
+    <div class="card-header">
+      Welcome to Socialbook!
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Welcome!</h5>
+      <p class="card-text">You can confirm your account email through the link below:</p>
+      <a href="#" class="btn btn-primary"><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></a>
+    </div>
+  </div>
