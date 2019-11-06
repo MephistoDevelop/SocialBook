@@ -1,22 +1,19 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { :host => 'https://socialbook2019.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :user_name            =>"agendator2019@gmail.com",
-  :password             => "2019agendator",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-  }
 
-  # Code is not reloaded between requests.
+  config.action_mailer.default_url_options = { :host => "https://socialbook2019.herokuapp.com"}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+   address: ‘smtp.sendgrid.net’,
+   port: “25”,
+   domain: ‘heroku.com’,
+   user_name: "inesherald",
+   password: "2019agendator",
+   authentication: ‘plain’,
+   enable_starttls_auto: true
+  }
+  # v Code is not reloaded between requests.
   config.cache_classes = true
   config.exceptions_app = self.routes
   # Eager load code on boot. This eager loads most of Rails and
