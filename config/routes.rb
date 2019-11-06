@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/show'
 
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   get 'users', to: 'users#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

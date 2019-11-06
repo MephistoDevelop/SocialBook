@@ -33,6 +33,7 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console', '3.5.1'
   gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.0'
 end
 
 group :production do
