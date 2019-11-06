@@ -2,6 +2,19 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.default_url_options = { :host => 'https://socialbook2019.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            =>"agendator2019@gmail.com",
+  :password             => "2019agendator",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
