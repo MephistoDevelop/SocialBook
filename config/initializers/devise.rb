@@ -24,7 +24,7 @@ Devise.setup do |config|
     OmniAuth::FailureEndpoint.new(env).redirect_to_failure
   }
 
-  config.mailer_sender = ENV[‘GMAIL_USERNAME’]
+  config.mailer_sender = ENV['GMAIL_USERNAME']
 config.reconfirmable = false # unless you are using reconfirmable!
 
   # ==> Controller configuration
