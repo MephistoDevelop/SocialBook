@@ -5,7 +5,7 @@
       <ul class="navbar">
       <% if user_signed_in? %>
  <li>
-  <%= display_avatar(current_user) %>
+  <%= tumblr(current_user) %>
  <%= link_to("Hello, #{set_name}", user_path(current_user)) %>
  </li>
   <li>

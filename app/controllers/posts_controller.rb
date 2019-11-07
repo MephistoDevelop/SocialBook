@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @user = current_user
     @post = @user.posts.build(post_params)
     @post.save
-    redirect_to @post
+    redirect_to root_path
   end
 
   def show
@@ -53,6 +53,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :user_id)
+    params.require(:post).permit(:content, :user_id, :avatar)
   end
 end

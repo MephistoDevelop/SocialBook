@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   get 'users', to: 'users#index'
   get 'user/:id', to: 'users#show', as: 'user'
+  get 'user/edit/:id', to: 'users#edit', as: 'edit'
+  post 'user/edit/:id', to: 'users#update'
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  #get '/users' => 'users#index', as: :user_root # creates user_root_path -> LINEA ELIMINADA
   root to: 'posts#index'
- # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-    get '/auth/facebook/callback', to: 'sessions#create'
+  get '/auth/facebook/callback', to: 'sessions#create'
   get '/users/auth/failure', :to => 'users/omniauth#failure'
-  #get '/users' => 'users#index', as: :user_root # creates user_root_path
   get 'reactions/new' => 'reactions#new'
   post 'reactions/new' => 'reactions#create'
   post '/addlike', to: 'posts#add_like', as: 'addlike'

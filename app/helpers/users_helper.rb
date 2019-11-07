@@ -31,21 +31,29 @@ module UsersHelper
 
   def link_status(user)
     if current_user != user
-    if current_user.friend_requested?(user) 
-      button_to 'Cancel Request', {:controller => "friendships", :action => "cancel_friend_request",:invited_id => user} , :method=>:post
-    elsif current_user.we_are_friends?(user)
-      button_to "Delete Friend #{user.username}", {:controller => "friendships", :action => "delete_friend",:friend_d => user} , :method=>:post
-    elsif request?(user)
-      button_to 'Accept  Request', {:controller => "friendships",:friend_o =>user.id, :action => "accept_friend"} , :method=>:post
+      if current_user.friend_requested?(user) 
+        button_to 'Cancel Request', {:controller => "friendships", :action => "cancel_friend_request",:invited_id => user} , :method=>:post
+      elsif current_user.we_are_friends?(user)
+        button_to "Delete Friend #{user.username}", {:controller => "friendships", :action => "delete_friend",:friend_d => user} , :method=>:post
+      elsif request?(user)
+        button_to 'Accept  Request', {:controller => "friendships",:friend_o =>user.id, :action => "accept_friend"} , :method=>:post
+      else
+        button_to "Add Friend #{user.username}", {:controller => "friendships", :action => "send_friend_request",:user_id => user} , :method=>:post
+      end
     else
-      button_to "Add Friend #{user.username}", {:controller => "friendships", :action => "send_friend_request",:user_id => user} , :method=>:post
-    end
+      link_to 'My Settings', edit_user_registration_path(user)
     end
   end
 
   def display_avatar(user)
     if user.avatar.attached?
-      image_tag user.avatar
+      image_tag user.avatar.variant(resize: '100x100')
+    end
+  end
+
+  def tumblr(user)
+    if user.avatar.attached?
+      image_tag user.avatar.variant(resize: '80x80')
     end
   end
 end

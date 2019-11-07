@@ -19,7 +19,7 @@ gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing'
 
 group :development, :test do
   # gem 'pg', '0.20.0'

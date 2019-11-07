@@ -8,12 +8,14 @@
 ines = User.create( username: 'Ines' ,
                                   email: 'mephisto@microverse.com' ,
                                   password: '123456' ,
-                                  password_confirmation: '123456' )
+                                  password_confirmation: '123456' 
+                                    )
 
  checo = User.create( username: 'checo' ,
                                     email: 'checo@microverse.com' ,
                                     password: '123456' ,
-                                    password_confirmation: '123456' )
+                                    password_confirmation: '123456'
+                                    avatar:  )
 
 michael = User.create(username: 'michael' ,
                                       email: 'michael@microverse.com' ,
