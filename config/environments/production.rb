@@ -3,7 +3,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
  # ActionMailer Config
- config.action_mailer.default_url_options = { :host => "https://socialbook2019.herokuapp.com"}ActionMailer::Base.delivery_method = :smtp
+ config.action_mailer.default_url_options = { :host => "https://socialbook2019.herokuapp.com"}
+ ActionMailer::Base.delivery_method = :smtp
  ActionMailer::Base.smtp_settings = {
   address: ‘smtp.sendgrid.net’,
   port: “25”,
