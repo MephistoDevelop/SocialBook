@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'open-uri'
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -57,7 +57,8 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.name.split.first # assuming the user model has a name
-      user.avatar = auth.info.image # assuming the user model has an image
+      download_image = open(auth.info.image) # assuming the user model has an image
+      user.avatar.attach(io: download_image, filename: 'avatar.jpg', content_type: download_image.content_type)
     end
   end
 end

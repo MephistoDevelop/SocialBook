@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   get 'users', to: 'users#index'
   get 'user/:id', to: 'users#show', as: 'user'
-  get 'user/edit/:id', to: 'users#edit', as: 'edit'
-  post 'user/edit/:id', to: 'users#update'
-  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'posts#index'
   get '/auth/facebook/callback', to: 'sessions#create'
