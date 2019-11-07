@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  #devise_for :users
-  #get 'users/new'
-  #get 'users/create'
-  
-
-
   get 'users', to: 'users#index'
-  get 'user', to: 'users#show'
+  get 'user/:id', to: 'users#show', as: 'user'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #get '/users' => 'users#index', as: :user_root # creates user_root_path -> LINEA ELIMINADA
   root to: 'posts#index'

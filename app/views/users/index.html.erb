@@ -1,7 +1,8 @@
-<div class="container">
-  <% @users.each do |user|  %>
-    <%= link_to user.username, user_path(user) %><br>
-    <%= user.email %>
-    <%= link_status(user) %>
-  <%end%>
+<% @users.each do |user|  %>
+<div class="card" style="width: 18rem;">
+    <%= display_avatar(user) %>
+  <div class="card-body">
+    <%= link_to user.username, user_path(user) %>
+  </div>
 </div>
+<%end%>

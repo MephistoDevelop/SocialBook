@@ -30,7 +30,8 @@ module UsersHelper
   end
 
   def link_status(user)
-    if current_user.friend_requested?(user)
+    if current_user != user
+    if current_user.friend_requested?(user) 
       button_to 'Cancel Request', {:controller => "friendships", :action => "cancel_friend_request",:invited_id => user} , :method=>:post
     elsif current_user.we_are_friends?(user)
       button_to "Delete Friend #{user.username}", {:controller => "friendships", :action => "delete_friend",:friend_d => user} , :method=>:post
@@ -38,6 +39,13 @@ module UsersHelper
       button_to 'Accept  Request', {:controller => "friendships",:friend_o =>user.id, :action => "accept_friend"} , :method=>:post
     else
       button_to "Add Friend #{user.username}", {:controller => "friendships", :action => "send_friend_request",:user_id => user} , :method=>:post
+    end
+    end
+  end
+
+  def display_avatar(user)
+    if user.avatar.attached?
+      image_tag user.avatar
     end
   end
 end

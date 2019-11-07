@@ -2,13 +2,13 @@
 .navbar {
   background-color: gray;
   color: black;
+  a {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: bolder;
+  }
 }
 
-a {
-  color: whitesmoke;
-  font-size: 18px;
-  font-weight: bolder;
-}
 
 span a {
   color: black !important;
