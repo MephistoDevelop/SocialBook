@@ -4,6 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
  # ActionMailer Config
   # Code is not reloaded between requests.
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => 'socialbook2019.herokuapp.com' }
 ActionMailer::Base.smtp_settings = {
   :user_name            => ENV['SENDGRID_USERNAME'],
@@ -11,7 +12,7 @@ ActionMailer::Base.smtp_settings = {
   :address              => "smtp.sendgrid.net",
   :port                 => 587,
   :enable_starttls_auto => true,
-  :authentication       => :plain,
+  :authentication       => "plain",
   :domain               => "socialbook2019.herokuapp.com"
 }
   config.cache_classes = true

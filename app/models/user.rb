@@ -4,8 +4,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,:confirmable
   devise :omniauthable, omniauth_providers: %i[facebook]
+  after_create :send_admin_mail
   # validates :name, presence:true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
@@ -21,6 +22,11 @@ class User < ApplicationRecord
   has_many :followeds, through: :inverse_friendships, source: 'requestor'
   has_many :pending_requests, -> { where friendship_status: nil }, foreign_key: 'requested_id', source: 'requested', class_name: 'Friendship'
   has_many :pending_friends, through: :pending_requests, source: 'requestor'
+
+
+  def send_admin_mail
+    UserMailer.send_signup_email(self).deliver_now
+  end
 
   def friends
     ids = followeds.pluck(:id) + followers.pluck(:id)

@@ -3,22 +3,21 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # ActionMailer config
- config.action_mailer.default_url_options = { :host => "https://localhost:3000" }
- config.action_mailer.perform_deliveries = true
- config.action_mailer.delivery_method = :smtp
- config.action_mailer.default :charset => 'utf-8'
- config.action_mailer.raise_delivery_errors = false
- config.action_mailer.default_options = { from: 'agendator2019@gmail.com' }
- config.action_mailer.smtp_settings = {
- address: 'smtp.gmail.com',
- port: 587,
- authentication: 'plain',
- enable_starttls_auto: true,
- user_name: ENV['GMAIL_USERNAME'],
- password: ENV['GMAIL_PASSWORD'],
- openssl_verify_mode: 'none'
- }
+  config.consider_all_requests_local       = true
+  config.action_controller.perform_caching = false
+  config.action_mailer.default_url_options = { :host => 'socialbook2019.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["MAIL_HOST"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+}
  config.action_mailer.perform_caching = false
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -50,8 +49,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
