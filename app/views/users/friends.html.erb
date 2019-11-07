@@ -1,0 +1,8 @@
+<div class="container">
+       <h3>   Friends:</h3> <br>
+          <% @user.friends.each do |friend|  %>
+                  <h5>Username: <%= friend.username%></h5>
+                  <h5>Email:: <%= friend.email%></h5>
+                  <br>
+          <%end%>
+</div>

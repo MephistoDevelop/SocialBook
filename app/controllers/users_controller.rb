@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   def index
-    @user = User.where.not(id: current_user.id)
+    @users = User.where.not(id: current_user.id)
   end
 
   def new; end
@@ -10,8 +10,10 @@ class UsersController < ApplicationController
   def create; end
 
   def show
-    @users = User.all
+    @user = User.find(params[:id])
   end
 
-  def show_friends; end
+  def friends
+     @user = current_user
+  end
 end

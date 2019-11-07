@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   #devise_for :users
-  get 'users/new'
-  get 'users/create'
-  get 'users/show'
+  #get 'users/new'
+  #get 'users/create'
+  
 
 
   get 'users', to: 'users#index'
+  get 'user', to: 'users#show'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #get '/users' => 'users#index', as: :user_root # creates user_root_path -> LINEA ELIMINADA
   root to: 'posts#index'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   get '/friendrequests', to: 'friendships#friend_requests', as: 'friendrequests'
   post '/acceptfriend', to: 'friendships#accept_friend'
   post '/deletefriend', to: 'friendships#delete_friend'
-  get '/friends',to: 'users#show_friends'
+  get '/friends',to: 'users#friends'
 
   resources :comments,only: [:new,:create]
   resources :posts, only: [:new, :create, :index, :show, :destroy]
