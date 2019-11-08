@@ -1,6 +1,6 @@
 @import "bootstrap";
 .navbar {
-  background-color: gray;
+  background-color: #0077b5;
   color: black;
 }
 
@@ -8,6 +8,10 @@ a {
   color: whitesmoke;
   font-size: 18px;
   font-weight: bolder;
+}
+div.container a:hover {
+  color: black;
+  text-decoration: none;
 }
 
 span a {
@@ -26,8 +30,20 @@ ul {
 li {
   margin: 10px;
 }
+div.logo-text a {
+  font-size: 28px;
+}
+.links a {
+  font-size: 14px;
+}
+div .links a:hover {
+  color: blue !important;
+  text-decoration: underline !important;
+}
 .login-message {
-  background-color: rgba($color: #55669e, $alpha: 0.7);
+  background-color: rgba($color: #09b83e, $alpha: 0.7);
+  color: 34465d;
+  font-weight: bolder;
 }
 #post-button {
   color: white;

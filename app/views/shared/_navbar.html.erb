@@ -1,8 +1,10 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<header class="navbar navbar-fixed-top navbar-inverse d-flex justify-content-center">
+  <div class="container m-0  p-0">
+  <div class="logo-text">
     <%= link_to "Socialbook", root_path%>
-    <nav class="navbar">
-      <ul class="navbar">
+  </div>
+    <nav class="navbar m-0  p-0">
+      <ul class="navbar m-0  p-0">
       <% if user_signed_in? %>
  <li>
  <%= link_to("Hello, #{set_name}", users_show_path) %>
