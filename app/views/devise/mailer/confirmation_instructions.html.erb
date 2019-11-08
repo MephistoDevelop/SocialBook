@@ -1,5 +1,12 @@
-<p>Welcome <%= @email %>!</p>
+ <div class="container">
+  <h2>From: Socialbook Administrator</h2>
+  <br>
+  <h4> <p>Welcome to SocialBook , <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+  <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+  <p>Have fun conecting with your  friends !!</p>
+  </h4>
+</div>
