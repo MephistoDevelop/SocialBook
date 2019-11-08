@@ -5,17 +5,19 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 
 -The objetive from this project is build the core of logic from Facebook page.
 
+#### [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
+
 - Principal Functions:
   - Create Account Using Real Email confirmation
-  - Login with your Facebook acccount
+  - Create Login with your Facebook acccount
+  - Send friends Requests
+  - Views publications from others friends
 
 #### [Link to odin page](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
 #### [Entity Relation Diagam](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
 
 ![alt text](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
-
-#### [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
 
 #### Language Requirements
 
@@ -24,12 +26,13 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 
 #### GEMS
 
+- Postgre
 - Bootstrap
 - Devise
 - Omniauth-facebook
+- Figaro
 - Factory-Bot
 - Capybara
-- Postgre
 
 #### Installation
 
