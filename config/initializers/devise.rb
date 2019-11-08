@@ -9,6 +9,23 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '423d255ebb1bf909425c94aa0f33f301ac39564c2a170ab69b8ca8230972ca1dd924b2ec7b41e46abd21dea7e766c42c7826108e8fe930005064d974450d4275'
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET_ID'],
+                  client_options: {
+                    site: 'https://graph.facebook.com/v4.0',
+                    authorize_url: 'https://www.facebook.com/v4.0/dialog/oauth',
+                    token_url: 'oauth/access_token'
+                  },
+                  token_params: { parse: :json },
+                  scope: 'public_profile, email',
+                  secure_image_url: true,
+                  info_fields: 'first_name,last_name,picture,name,email'
+
+  OmniAuth.config.on_failure = proc { |env|
+    OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+  }
+
+  config.mailer_sender = ENV['GMAIL_USERNAME']
+  config.reconfirmable = false # unless you are using reconfirmable!
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +35,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'agendator2019@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

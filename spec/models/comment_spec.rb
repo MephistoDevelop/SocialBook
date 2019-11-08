@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before(:all) do
-    @user = create(:user, :controller_post)
-    @post = create(:post, :post_comment)
+    @user = create(:user)
+    @post = create(:post)
     @comment = @user.comments.build(content: 'This is my content comment')
     @comment.post_id = @post.id
     @comment.author_id = @user.id

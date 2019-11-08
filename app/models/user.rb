@@ -4,10 +4,13 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
+  devise :omniauthable, omniauth_providers: %i[facebook]
+  after_create :send_admin_mail
   # validates :name, presence:true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :username, presence: true
 
   has_many :posts, dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
@@ -19,6 +22,10 @@ class User < ApplicationRecord
   has_many :followeds, through: :inverse_friendships, source: 'requestor'
   has_many :pending_requests, -> { where friendship_status: nil }, foreign_key: 'requested_id', source: 'requested', class_name: 'Friendship'
   has_many :pending_friends, through: :pending_requests, source: 'requestor'
+
+  def send_admin_mail
+    UserMailer.send_signup_email(self)
+  end
 
   def friends
     ids = followeds.pluck(:id) + followers.pluck(:id)
@@ -48,5 +55,14 @@ class User < ApplicationRecord
 
   def we_are_friends?(friend)
     friends.include?(friend)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.username = auth.info.name.split.first # assuming the user model has a name
+      user.image = auth.info.image # assuming the user model has an image
+    end
   end
 end

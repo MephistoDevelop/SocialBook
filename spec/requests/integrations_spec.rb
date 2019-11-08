@@ -3,51 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe 'Integrations', type: :request do
+  let(:user) { create(:user) }
+  let(:friend) { create(:user) }
+
   it "signs me in and see user's email" do
-    @user = User.create(email: 'user@example.com', password: 'password')
-    @friend = User.create(email: 'user1@example.com', password: 'password')
-    visit '/users'
-    fill_in 'user_email', with: @user.email
-    fill_in 'user_password', with: @user.password
+    visit '/users/show'
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     click_button 'Log in'
-    expect(page).to have_content 'user1@example.com'
+    expect(page).to have_content 'Logout'
   end
 
   it 'sends a friend request' do
-    @user = User.create(email: 'user@example.com', password: 'password')
-    @friend = User.create(email: 'user1@example.com', password: 'password')
-    visit '/users'
-    fill_in 'user_email', with: @user.email
-    fill_in 'user_password', with: @user.password
+    expect(friend.pending_requests.size).eql?(0)
+    visit '/users/show'
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     click_button 'Log in'
-    expect(page).to have_content 'user1@example.com'
-    first(:button, 'Add Friend').click
-    expect(@friend.friendships.size).eql?(1)
+    click_button("Add Friend #{friend.username}", match: :first)
+    expect(friend.pending_requests.size).eql?(1)
   end
 
   it 'accepts a friend request' do
-    @user = User.create(username: 'friend', email: 'user@example.com', password: 'password')
-    @friend = User.create(username: 'friend2', email: 'user1@example.com', password: 'password')
-    visit '/users'
-    fill_in 'user_email', with: @user.email
-    fill_in 'user_password', with: @user.password
+    user.send_friend_request(friend)
+    expect(friend.friends.size).eql?(0)
+    visit '/users/show'
+    fill_in 'user_email', with: friend.email
+    fill_in 'user_password', with: friend.password
     click_button 'Log in'
-    click_button 'Add Friend friend'
-    click_link 'Logout'
-    fill_in 'user_email', with: @friend.email
-    fill_in 'user_password', with: @friend.password
-    click_button 'Log in'
-    expect(page).to have_content 'Friends requests: 1'
-    click_link 'Friends requests: 1'
-    # click_button 'Accept Request'
-    expect(@friend.friends.size).eql?(1)
+    visit '/friendrequests'
+    find_button('Accept Request').click
+    expect(friend.friends.size).eql?(1)
   end
 
-  it 'send successfully a friend request' do
-    @user1 = create(:user, :ines)
-    @user2 = create(:user, :checo)
-    expect(@user2.friend_requests.size).to eq(0)
-    @user1.send_friend_request(@user2)
-    expect(@user2.friend_requests.size).to eq(1)
+  it 'log in with facebook' do
+    user = create(:user)
+    post '/users/auth/facebook/callback', params: { name: user.name, email: user.email }
+    session['user_id'] = user.id
+    expect(@response.cookies[Rails.application.config.session_options[:key]].nil?).to eql(false)
+    assert_equal user.id, session[:user_id]
   end
 end

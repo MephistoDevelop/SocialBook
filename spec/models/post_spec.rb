@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   before(:all) do
-    @user = create(:user, :controller_likes)
-    @post = @user.posts.build
+    @user = create(:user)
+    @post = create(:post)
   end
 
   it 'is an invalid post if content is blank' do

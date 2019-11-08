@@ -18,6 +18,14 @@ module UsersHelper
   end
 
   def show_user_friends
-    current_user.friends.pluck(:username)
+    names = current_user.friends.map(&:name)
+    usernames = current_user.friends.map(&:username)
+    (names + usernames).compact
+  end
+
+  def search_friend_email(name)
+    q = current_user.friends.where(username: name).first
+    return current_user.friends.where(name: name).first.email if q.nil?
+    return q.email unless q.nil?
   end
 end

@@ -50,4 +50,10 @@ RSpec.configure do |config|
   end
 
   config.include Capybara::DSL
+
+  # Turn on "test mode" for OmniAuth
+  OmniAuth.config.test_mode = true
+
+  # Include Devise TestHelpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end

@@ -2,10 +2,21 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # ActionMailer Config
   # Code is not reloaded between requests.
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'socialbook2019.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    enable_starttls_auto: true,
+    authentication: 'plain',
+    domain: 'socialbook2019.herokuapp.com'
+  }
   config.cache_classes = true
-
+  config.exceptions_app = routes
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
