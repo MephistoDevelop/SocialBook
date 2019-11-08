@@ -6,4 +6,8 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true
   validates :author_id, presence: true
+
+  def author
+    User.where(id: author_id)
+  end
 end

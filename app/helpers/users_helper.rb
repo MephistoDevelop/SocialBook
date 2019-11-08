@@ -41,7 +41,7 @@ module UsersHelper
 
   def tumblr(user)
     if user.avatar.attached?
-      image_tag user.avatar.variant(resize: '100')
+      image_tag user.avatar.variant(thumbnail: '100' )
     end
   end
 end

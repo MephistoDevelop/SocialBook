@@ -1,24 +1,22 @@
 <div class="container col d-flex justify-content-center">
   <div>
-    <br>
-    ***********************************************************************************************************
+    
     <% @posts.each do |post| %>
+    <%= render 'shared/post_a_post' %>
       <% @post = post %>
+      <%= author_avatar(post) %>
+      <%= post.author.first.username %>
+      <%= post.content %>
+      <%= post_picture(post) %>
       <br>
-        Post Author: <%= post_author(post) %>
-<br>
-    Reactions:
-    <%= post.likes %>
-      <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
-      <br><br>
-    Content: <br>  <%= post.content %> <br><br>
-
-    <h4>Comments section</h4>
-    <% post.comments.each do |comment| %>
-      comment author: <%= comment_author(comment) %><br>
-      Comment: <br> <%= comment.content %><br>
+      <%= post.likes %>
+      <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
       <br>
+    
+      <% post.comments.each do |comment| %>
+      <%= comment.author.first.username %>
       <br>
+      <%= comment.content %>
     <% end %>
     <%= form_for(@comment) do |f| %>
       <div class="field">
@@ -33,9 +31,8 @@
       <%= link_to  "View Post", post,id:"post-button" %>
       <br>
       <br>
-    ***********************************************************************************************************
+    
     <% end %>
     <br>
-    ***********************************************************************************************************
   <div>
 </div>

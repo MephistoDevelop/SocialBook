@@ -4,12 +4,4 @@ module ApplicationHelper
   def friends_request_number
     current_user.friend_requests.size
   end
-
-  def set_name
-    if !current_user.username.nil?
-      current_user.username
-    else
-      current_user.name
-    end
-  end
 end

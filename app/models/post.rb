@@ -8,6 +8,11 @@ class Post < ApplicationRecord
   has_many :reactions
 
   default_scope { order(created_at: :desc) }
+
+  def author
+    User.where(id: user_id)
+  end
+
   def likes
     reactions.size
   end
