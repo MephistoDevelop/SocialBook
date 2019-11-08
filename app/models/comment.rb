@@ -8,6 +8,6 @@ class Comment < ApplicationRecord
   validates :author_id, presence: true
 
   def author
-    User.where(id: author_id)
+    User.where(id: author_id).first
   end
 end

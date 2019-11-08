@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   default_scope { order(created_at: :desc) }
 
   def author
-    User.where(id: user_id)
+    User.where(id: user_id).first
   end
 
   def likes

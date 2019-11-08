@@ -9,7 +9,7 @@ module PostsHelper
   end
 
   def author_avatar(post)
-    user = post.author.first
+    user = post.author
     if user.avatar.attached?
       image_tag user.avatar.variant(thumbnail: '100')
     end
