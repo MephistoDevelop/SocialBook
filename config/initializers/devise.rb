@@ -25,7 +25,7 @@ Devise.setup do |config|
   }
 
   config.mailer_sender = ENV['GMAIL_USERNAME']
-config.reconfirmable = false # unless you are using reconfirmable!
+  config.reconfirmable = false # unless you are using reconfirmable!
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
