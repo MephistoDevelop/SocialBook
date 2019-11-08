@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get "/404", to: "errors#not_found"
   get "/422", to: "errors#unacceptable"
   get "/500", to: "errors#internal_error"
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
 
 
   get 'users', to: 'users#index'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #get '/users' => 'users#index', as: :user_root # creates user_root_path -> LINEA ELIMINADA
   root to: 'posts#index'
  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
