@@ -25,7 +25,6 @@ class User < ApplicationRecord
 
 
   def send_admin_mail
-    puts "Hora de enviar desde el modelo de datos !!"
     UserMailer.send_signup_email(self)
   end
 
