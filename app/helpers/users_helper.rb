@@ -17,18 +17,6 @@ module UsersHelper
     !current_user.pending_requests.where(requestor_id: friend.id).empty?
   end
 
-  def show_user_friends
-    names = current_user.friends.map(&:name)
-    usernames = current_user.friends.map(&:username)
-    (names + usernames).compact
-  end
-
-  def search_friend_email(name)
-    q = current_user.friends.where(username: name).first
-    return current_user.friends.where(name: name).first.email if q.nil?
-    return q.email unless q.nil?
-  end
-
   def link_status(user)
     if current_user != user
       if current_user.friend_requested?(user) 
@@ -47,13 +35,13 @@ module UsersHelper
 
   def display_avatar(user)
     if user.avatar.attached?
-      image_tag user.avatar.variant(resize: '100x100')
+      image_tag user.avatar.variant(virtual_pixel: 'HorizontalTile', resize: '300')
     end
   end
 
   def tumblr(user)
     if user.avatar.attached?
-      image_tag user.avatar.variant(resize: '80x80')
+      image_tag user.avatar.variant(resize: '100')
     end
   end
 end
