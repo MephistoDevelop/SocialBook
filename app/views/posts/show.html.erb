@@ -17,7 +17,7 @@
     <% end %>
 </div>
 <%= will_paginate @comments %>
-<%= link_to 'Comment it', {controller: 'comment', action: 'new', post_id: @post.id}%>
+<%= link_to 'Comment it', new_comment_path(key: "#{@post.id}") %>
 
 
 

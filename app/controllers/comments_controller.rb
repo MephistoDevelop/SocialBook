@@ -2,15 +2,14 @@
 
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    key = params[:key]
+    @comment = Comment.new(post_id: key)
   end
 
   def create
-    @post = Post.find(id: post_id)
     @comment = current_user.comments.build(comments_params)
-    @comment.post_id = @post.id
     @comment.save
-    redirect_to @post
+    redirect_to root_path
   end
 
   private
