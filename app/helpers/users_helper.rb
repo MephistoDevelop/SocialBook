@@ -33,12 +33,6 @@ module UsersHelper
     end
   end
 
-  def display_avatar(user)
-    if user.avatar.attached?
-      image_tag user.avatar.variant(virtual_pixel: 'HorizontalTile', resize: '300')
-    end
-  end
-
   def tumblr(user)
     if user.avatar.attached?
       image_tag user.avatar.variant(thumbnail: '100' )

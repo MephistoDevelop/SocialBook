@@ -1,23 +1,36 @@
 <div class="container">
     <%= post_picture(@post) %>
+    <%= display_avatar(@post.author) %>
     <%= @post.author.username %><br>
     <%= @post.content %><br>
     <%= @post.likes %>
     <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
 <div>
-
+  <%= form_for @comment do |f|  %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.submit 'Comment it' %>
+  <% end %>
 <div class="container">
    <% @comments.each do |comment| %>
-   <div class="card w-75">
+   <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= comment_author_avatar(comment) %>
+      </div>
+      <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><%= comment.author.username %></h5>
+          <h5 class="card-title"><%= comment.author.username%></h5>
           <p class="card-text"><%= comment.content %></p>
+          <p class="card-text"><small class="text-muted"><%=comment.created_at%></small></p>
         </div>
       </div>
+    </div>
+  </div>
     <% end %>
 </div>
+
 <%= will_paginate @comments %>
-<%= link_to 'Comment it', new_comment_path(key: "#{@post.id}") %>
 
 
 
