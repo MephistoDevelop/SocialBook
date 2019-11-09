@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update_attributes(params[:avatar])
-    redirect_to @user  
+    redirect_to @user
   end
 
   def show
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
   end
 
   def friends
-     @user = current_user
+    @user = current_user
   end
 end

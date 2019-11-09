@@ -3,7 +3,7 @@
 class PostsController < ApplicationController
   def index
     ids = current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
-    @posts = Post.where(user_id: ids).paginate(:page => params[:page], :per_page => 10)
+    @posts = Post.where(user_id: ids).paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+    @comments = @post.comments.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def add_like
