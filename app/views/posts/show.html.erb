@@ -1,23 +1,36 @@
 <div class="container">
-    <h4>View from Post</h4>
-    <br>
-    <h5>Author: </h5> <%=post_author(@post) %><br><br>
-    <h5>User reactions: <%= @post.likes %></h5>
-    <%= button_to 'Like', {:controller => "posts", :action => "add_like_post", :post_id => @post.id, } , :method=>:post  %>
-    <br>
-    <h5>Content:</h5> <%= @post.content %> <br><br>
-    Comments Section:<br><br>
-    <% @post.comments.each do |comment| %>
-        <div>Author: <%=comment_author(comment) %><br> <%= comment.content %></div>
-        <br>
+    <%= post_picture(@post) %>
+    <%= display_avatar(@post.author) %>
+    <%= @post.author.username %><br>
+    <%= @post.content %><br>
+    <%= @post.likes %>
+    <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
+<div>
+  <%= form_for @comment do |f|  %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.submit 'Comment it' %>
+  <% end %>
+<div class="container">
+   <% @comments.each do |comment| %>
+   <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= comment_author_avatar(comment) %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= comment.author.username%></h5>
+          <p class="card-text"><%= comment.content %></p>
+          <p class="card-text"><small class="text-muted"><%=comment.created_at%></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
     <% end %>
-    <%= form_for(@comment) do |f| %>
-      <div class="field">
-          <%= f.text_field :content %>
-          <%= f.hidden_field :id, :value=>@post.id %>
-      </div>
-      <div class="actions">
-          <%= f.submit "Comment" %>
-      </div>
-    <%end %>
 </div>
+
+<%= will_paginate @comments %>
+
+
+

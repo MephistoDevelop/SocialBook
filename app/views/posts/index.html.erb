@@ -1,41 +1,22 @@
 <div class="container col d-flex justify-content-center">
   <div>
-    <br>
-    ***********************************************************************************************************
+    <%= form_for @post do |f|  %>
+    <%= f.text_field :content, placeholder:'What are you thiking?' %><br>
+    <%= f.file_field :avatar %><br>
+    <%= f.submit 'Post it' %>
+  <% end %>
     <% @posts.each do |post| %>
       <% @post = post %>
+      <%= author_avatar(post) %>
+      <%= post.author.username %><br>
+      <%= post.content %>
+      <%= post_picture(post) %>
       <br>
-        Post Author: <%= post_author(post) %>
-<br>
-    Reactions:
-    <%= post.likes %>
-      <%= button_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
-      <br><br>
-    Content: <br>  <%= post.content %> <br><br>
-
-    <h4>Comments section</h4>
-    <% post.comments.each do |comment| %>
-      comment author: <%= comment_author(comment) %><br>
-      Comment: <br> <%= comment.content %><br>
-      <br>
+      <%= post.likes %>
+      <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
+      <%= link_to 'View', post %>
       <br>
     <% end %>
-    <%= form_for(@comment) do |f| %>
-      <div class="field">
-        <%= f.text_field :content %>
-        <%= f.hidden_field :id, :value=>post.id %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Comment" %>
-      </div>
-      <%end %>
-      <br>
-      <%= link_to  "View Post", post,id:"post-button" %>
-      <br>
-      <br>
-    ***********************************************************************************************************
-    <% end %>
-    <br>
-    ***********************************************************************************************************
-  <div>
+  </div>
+  <%= will_paginate @posts %>
 </div>

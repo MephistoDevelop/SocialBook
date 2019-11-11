@@ -5,11 +5,12 @@ module ApplicationHelper
     current_user.friend_requests.size
   end
 
-  def set_name
-    if !current_user.username.nil?
-      current_user.username
-    else
-      current_user.name
-    end
+  def display_avatar(user)
+    image_tag user.avatar.variant(virtual_pixel: 'HorizontalTile', resize: '300') if user.avatar.attached?
+  end
+
+  def comment_author_avatar(comment)
+    user = comment.author
+    image_tag user.avatar.variant(virtual_pixel: 'HorizontalTile', thumbnail: 'x100') if user.avatar.attached?
   end
 end

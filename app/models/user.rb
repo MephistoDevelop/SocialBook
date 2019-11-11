@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'open-uri'
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,7 +12,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :username, presence: true
-
+  has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_many :reactions
@@ -62,7 +63,8 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.username = auth.info.name.split.first # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
+      download_image = open(auth.info.image) # assuming the user model has an image
+      user.avatar.attach(io: download_image, filename: 'avatar.jpg', content_type: download_image.content_type)
     end
   end
 end

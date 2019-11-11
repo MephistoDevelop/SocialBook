@@ -1,18 +1,12 @@
 # frozen_string_literal: true
 
 module PostsHelper
-  def author_name(comment)
-    User.where(id: comment.author_id).pluck(:username).first
+  def post_picture(post)
+    image_tag post.avatar.variant(thumbnail: '100') if post.avatar.attached?
   end
 
-  def post_author(post)
-    q = User.where(id: post.user_id).pluck(:username)[0]
-    return q unless q.nil?
-    return User.where(id: post.user_id).pluck(:name)[0] if q.nil?
-  end
-
-  def comment_author(comment)
-    q = User.where(id: comment.author_id).pluck(:username)[0]
-    return User.where(id: comment.author_id).pluck(:name)[0] if q.nil?
+  def author_avatar(post)
+    user = post.author
+    image_tag user.avatar.variant(thumbnail: '100') if user.avatar.attached?
   end
 end

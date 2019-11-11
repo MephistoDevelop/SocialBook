@@ -2,21 +2,20 @@
 
 class CommentsController < ApplicationController
   def new
+    key = params[:post_id]
+    @comment = Comment.new(post_id: key)
     @comment = Comment.new
   end
 
   def create
-    @post = Post.find(params[:comment][:id])
-
     @comment = current_user.comments.build(comments_params)
-    @comment.post_id = @post.id
     @comment.save
-    redirect_to @post
+    redirect_to root_path
   end
 
   private
 
   def comments_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :post_id)
   end
 end

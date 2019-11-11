@@ -3,11 +3,16 @@
 class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 1000 }
   belongs_to :user
-
+  has_one_attached :avatar
   has_many :comments
   has_many :reactions
 
   default_scope { order(created_at: :desc) }
+
+  def author
+    User.where(id: user_id).first
+  end
+
   def likes
     reactions.size
   end

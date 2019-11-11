@@ -23,4 +23,6 @@
 .byebug_history
 
 # Ignore application configuration
-# Ignore application configuration
+
+/storage
+

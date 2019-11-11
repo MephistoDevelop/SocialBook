@@ -2,6 +2,11 @@
 .navbar {
   background-color: #0077b5;
   color: black;
+  a {
+    color: whitesmoke;
+    font-size: 18px;
+    font-weight: bolder;
+  }
 }
 
 a {
@@ -13,6 +18,7 @@ div.container a:hover {
   color: black;
   text-decoration: none;
 }
+
 
 span a {
   color: black !important;
@@ -53,4 +59,7 @@ div .links a:hover {
   margin: 10px;
 
   padding: 10px;
+}
+.menu-nav {
+  margin: 0px auto;
 }
