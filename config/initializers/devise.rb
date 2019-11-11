@@ -24,6 +24,9 @@ Devise.setup do |config|
     OmniAuth::FailureEndpoint.new(env).redirect_to_failure
   }
 
+  config.mailer_sender = ENV['GMAIL_USERNAME']
+  config.reconfirmable = false # unless you are using reconfirmable!
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -32,7 +35,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'agendator2019@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

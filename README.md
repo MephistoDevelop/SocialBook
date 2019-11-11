@@ -1,9 +1,17 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
-This project it's building using Ruby on Rails Framework using Ruby Lenguageand it's part of the main curriculum from the odin project page. from Microverse, main curriculum
-[Microverse](https://www.microverse.org/) - @microverseinc
+This project it's building using Ruby on Rails Framework using Ruby Lenguage and it's part of the main curriculum from the odin project page. from Microverse, main curriculum
+[Microverse](https://www.microverse.org/)
 
 -The objetive from this project is build the core of logic from Facebook page.
+
+#### [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
+
+- Principal Functions:
+  - Create Account Using Real Email confirmation
+  - Create Login with your Facebook acccount
+  - Send friends Requests
+  - Views publications from others friends
 
 #### [Link to odin page](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
@@ -11,15 +19,24 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguageand 
 
 ![alt text](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
 
-#### [Live view](**_Working...._**)
-
 #### Language Requirements
 
     Ruby 2.6.3
+    Rails 5.2.0
+
+#### GEMS
+
+- Postgre
+- Bootstrap
+- Devise
+- Omniauth-facebook
+- Figaro
+- Factory-Bot
+- Capybara
 
 #### Installation
 
-Clone or download the repository to your local machine and after open your terminal on the repo and run :
+Clone or download the repository to your local machine and after open your terminal on the repository folder and run :
 
     bundle install
 
@@ -52,6 +69,7 @@ Run:
 ### Rspec tests
 
     To run rspec at terminal:
+
       rspec
 
 #### Authors

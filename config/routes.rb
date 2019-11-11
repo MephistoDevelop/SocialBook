@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
   get 'users', to: 'users#index'
   get 'user/:id', to: 'users#show', as: 'user'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get "/404", to: "errors#not_found"
+  get "/422", to: "errors#unacceptable"
+  get "/500", to: "errors#internal_error"
+
   root to: 'posts#index'
   get '/auth/facebook/callback', to: 'sessions#create'
   get '/users/auth/failure', :to => 'users/omniauth#failure'
