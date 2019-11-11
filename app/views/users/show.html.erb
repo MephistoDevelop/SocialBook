@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <div class="card text-center" style="width: 18rem;">
+        <%= display_avatar(@user) %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.username %></h5>
+          <p class="card-text">email: <%= @user.email %></p>
+          <%= link_status(@user) %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

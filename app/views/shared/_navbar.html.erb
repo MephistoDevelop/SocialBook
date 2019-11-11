@@ -1,0 +1,44 @@
+
+<header class="navbar navbar-fixed-top navbar-inverse d-flex justify-content-center">
+  <div class="container m-0  p-0">
+  <div class="logo-text">
+    <%= link_to "Socialbook", root_path%>
+  </div>
+    <nav class="navbar m-0  p-0">
+      <ul class="navbar m-0  p-0">
+      <% if user_signed_in? %>
+ <li>
+  <%= tumblr(current_user) %>
+ <%= link_to("Hello, #{current_user.username}", user_path(current_user)) %>
+ </li>
+  <li>
+ <%= link_to('Users', users_path) %>
+ </li>
+   <li>
+    <%= link_to("Friends(#{current_user.friends.size})", friends_path) %>
+  </li>
+   <li>
+ <%= link_to('Home', root_path) %>
+ </li>
+    <li class="nav-item"> <%= link_to "Friends  requests(#{current_user.pending_requests.size})",  friendrequests_path  %> </li>
+ <li class="nav-item">
+ <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+ </li>
+<% else %>
+ <li>
+ <%= link_to('Login', new_user_session_path) %>
+ </li>
+ <li>
+ <%= link_to('Sign Up', new_user_registration_path) %>
+ </li>
+ <li>
+  <% unless current_user %>
+  <% else %>  <%= current_user[:name] %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <% end %>
+ </li>
+<% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+/.idea
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -21,3 +21,8 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore application configuration
+
+/storage
+

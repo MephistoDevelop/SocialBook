@@ -1,0 +1,8 @@
+<% current_user.pending_requests.each do |friendship| %>
+  <% if !current_user.pending_requests.empty?%>
+  <%= display_friend_requests(friendship) %>
+    <%= button_to 'Accept Request', {:controller => "friendships",:friend_o => accept_friend_now(friendship), :action => "accept_friend"} , :method=>:post  %>
+  <% else%>
+      <h4>You dont have friends Requests !</h4>
+  <% end %>
+  <% end %>

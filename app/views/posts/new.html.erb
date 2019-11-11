@@ -1,0 +1,17 @@
+<div class="container">
+        <%= form_for(@post) do |f| %>
+        <div class="field">
+            <%= f.label :content %>
+            <%= f.text_field :content %>
+        </div>
+    
+        <div class="field">
+            <%= f.label 'Upload image' %>
+            <%= f.file_field :avatar %>
+        </div>
+    
+        <div class="actions">
+            <%= f.submit "Create Post" %>
+        </div>
+        <% end %>
+    </div>

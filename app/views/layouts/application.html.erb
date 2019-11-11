@@ -7,8 +7,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <%= render '/shared/navbar' %>
   <body>
+        <% flash.each do |message_type, message| %>
+        <div class="login-message text-center alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
