@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comments_params)
     @comment.save
-    redirect_to root_path
+    redirect_to post_path(comments_params[:post_id])
   end
 
   private

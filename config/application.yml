@@ -9,5 +9,5 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-FACEBOOK_APP_ID: 404683946872710
+FACEBOOK_APP_ID: '404683946872710'
 FACEBOOK_SECRET_ID: 5b99df19964b57ac50da5d6c0716e1ca
