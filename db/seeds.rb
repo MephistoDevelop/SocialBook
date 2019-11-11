@@ -9,21 +9,21 @@ ines = User.create( username: 'Ines' ,
                                   email: 'mephisto@microverse.com' ,
                                   password: '123456' ,
                                   password_confirmation: '123456' ,
-                                  confirmed_at: Time.now.utc
+                                  confirmed_at: Time.now
                                     )
 
  checo = User.create( username: 'checo' ,
                                     email: 'checo@microverse.com' ,
                                     password: '123456' ,
                                     password_confirmation: '123456',
-                                    confirmed_at: Time.now.utc
+                                    confirmed_at: Time.now
                                    )
 
 michael = User.create(username: 'michael' ,
                                       email: 'michael@microverse.com' ,
                                       password: '123456' ,
                                       password_confirmation: '123456' ,
-                                      confirmed_at: Time.now.utc
+                                      confirmed_at: Time.now
                                       )
 
 post1 = Post.create( content: 'Im the  seed first post' ,
