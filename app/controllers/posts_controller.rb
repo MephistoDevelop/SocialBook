@@ -2,8 +2,9 @@
 
 class PostsController < ApplicationController
   def index
+    @post = Post.new
     ids = current_user.followeds.pluck(:id) + current_user.followers.pluck(:id) << current_user.id
-    @posts = Post.where(user_id: ids).paginate(page: params[:page], per_page: 10)
+    @posts = Post.where(user_id: ids).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def new

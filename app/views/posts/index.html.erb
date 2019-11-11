@@ -1,9 +1,14 @@
 <div class="container col d-flex justify-content-center">
   <div>
+    <%= form_for @post do |f|  %>
+    <%= f.text_field :content, placeholder:'What are you thiking?' %><br>
+    <%= f.file_field :avatar %><br>
+    <%= f.submit 'Post it' %>
+  <% end %>
     <% @posts.each do |post| %>
       <% @post = post %>
       <%= author_avatar(post) %>
-      <%= post.author.username %>
+      <%= post.author.username %><br>
       <%= post.content %>
       <%= post_picture(post) %>
       <br>
