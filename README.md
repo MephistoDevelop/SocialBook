@@ -33,6 +33,12 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 - Figaro
 - Factory-Bot
 - Capybara
+- Active storage
+
+#### Web Services
+
+- SendGrid
+- AWS S3
 
 #### Installation
 
