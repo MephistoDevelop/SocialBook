@@ -18,11 +18,52 @@ div.container a:hover {
   color: black;
   text-decoration: none;
 }
-
-body div.card a {
-  color: black !important;
+div.container.col a {
+  color: black !important   ;
 }
-
+div.container.col a:hover {
+  color: #0077b5 !important   ;
+}
+u.underlined:hover {
+  color: #0077b5;
+}
+.card {
+  background-color: #415c6b;
+  opacity: 0.8;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 5px 5px grey;
+}
+.card-body {
+  background-color: #415c6b;
+  opacity: 0.8;
+  color: white;
+  font-weight: bold;
+  box-shadow: 2px 5px 5px grey;
+  a {
+    color: whitesmoke !important;
+  }
+}
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+.btn {
+  background-color: #0077b5;
+  border-radius: 20px;
+  color: whitesmoke;
+  font-weight: bold;
+  width: 50%;
+  box-shadow: 2px 5px 5px grey;
+}
+body div.card a {
+  color: white !important;
+  font-weight: bold;
+}
+.btn-friends {
+  width: 25%;
+}
 span a {
   color: black !important;
 }

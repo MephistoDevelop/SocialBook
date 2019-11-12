@@ -1,11 +1,15 @@
-<div class="container col d-flex justify-content-center">
-  <div>
+<div class="container col d-flex justify-content-center mt-5">
+  <div class="w-50">
+  <div class="d-flex justify-content-center">
     <%= form_for @post do |f|  %>
-    <%= f.text_field :content, placeholder:'What are you thiking?' %><br>
-    <%= f.file_field :avatar %><br>
-    <%= f.submit 'Post it' %>
-  <% end %>
-    <% @posts.each do |post| %>
+      <%= f.text_field :content, placeholder:'What are you thiking?' %><br>
+      <%= f.file_field :avatar %><br>
+      <%= f.submit 'Post it',:class => 'btn mt-2' %>
+    <% end %>
+    </div>
+    <br>
+    <div class="separator"><div>
+      <% @posts.each do |post| %>
       <% @post = post %>
       <%= author_avatar(post) %>
       <%= post.author.username %><br>
@@ -15,6 +19,8 @@
       <%= post.likes %>
       <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
       <%= link_to 'View', post %>
+      <br><br>
+      <div class="separator"><div>
       <br>
     <% end %>
   </div>

@@ -1,8 +1,13 @@
-<% @users.each do |user|  %>
-<div class="card" style="width: 18rem;">
-    <%= display_avatar(user) %>
-  <div class="card-body">
-    <%= link_to user.username, user_path(user) %>
-  </div>
+<div class="container flex-column justify-content-center "  >
+<h3>Friends to connect</h3>
+  <% @users.each do |user|  %>
+    <div class="card d-flex justify-content-center" style="width: 18rem;">
+      <%= display_avatar(user) %>
+      <div class="card-body">
+        <%= link_to user.username, user_path(user) %>
+      </div>
+    </div>
+    <br>
+  <%end%>
 </div>
-<%end%>
+
