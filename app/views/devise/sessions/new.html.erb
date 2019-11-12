@@ -1,6 +1,6 @@
 <div class="container col d-flex justify-content-center mt-5">
   <div>
-  <h2>Log in</h2>
+  <h2 class="ml-5">Log in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,8 +19,8 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions d-flex justify-content-center">
+    <%= f.submit "Log in",:class => 'btn w-50' %>
   </div>
 <% end %>
 
