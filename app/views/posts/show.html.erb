@@ -1,16 +1,18 @@
 <div class="container d-flex justify-content-center">
   <div>
-    <h3>Post Description </h3>
+    <h3 class="d-flex justify-content-center">Post Description </h3>
     <br>
-    <%= post_picture(@post) %>
-    <%= display_avatar(@post.author) %>
-    <h5>Post author:  <%= @post.author.username %></h5>
+
+ Post author:
+        <%= display_avatar(@post.author) %> <%= @post.author.username %></h5>
    <h5> Content:</h5>
+     <%= post_picture(@post) %>
+     <br>
     <%= @post.content %>
     <br>
     Likes: <%= @post.likes %>
     <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post,:style=>"color:black;"  %>
-
+<br>
     <%= form_for @comment do |f|  %>
       <%= f.text_field :content,:class=>"w-75 mb-3",:placeholder=>"Comment here..." %>
       <%= f.hidden_field :post_id, value: @post.id %>
