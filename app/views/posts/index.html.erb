@@ -2,9 +2,11 @@
   <div class="w-50">
   <div class="d-flex justify-content-center">
     <%= form_for @post do |f|  %>
-      <%= f.text_field :content, placeholder:'What are you thiking?' %><br>
-      <%= f.file_field :avatar %><br>
+      <%= f.text_area :content, placeholder:'What are you thiking?', size:"70" %><br>
+      <%= f.file_field :avatar %>
+      <div class="d-flex justify-content-center">
       <%= f.submit 'Post it',:class => 'btn mt-2' %>
+      </div>            
     <% end %>
     </div>
     <br>
@@ -12,7 +14,7 @@
     <br>
       <% @posts.each do |post| %>
       <% @post = post %>
-      <div>
+      <div class="shadow hoverable post">
       <%= author_avatar(post) %>
       Author: <%= post.author.username %>
       <div>
