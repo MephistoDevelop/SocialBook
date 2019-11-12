@@ -12,15 +12,21 @@
     <br>
       <% @posts.each do |post| %>
       <% @post = post %>
-      <div class='shadow hoverable'>
+      <div>
       <%= author_avatar(post) %>
-      <%= post.author.username %><br>
-      <%= post.content %>
-      <%= post_picture(post) %>
+      Author: <%= post.author.username %>
+      <div>
       <br>
-      <%= post.likes %>
+      <%= post_picture(post) %><br>
+      <%= post.content %>
+      <br>
+      <div class="container d-flex justify-content-around">
+      Likes:
+       <%= post.likes %>
       <%= link_to 'Like', {:controller => "posts", :action => "add_like", :post_id => @post.id, } , :method=>:post  %>
       <%= link_to 'View', post %>
+      </div>
+
       <br><br>
       <div class="separator"><div>
       <br>
