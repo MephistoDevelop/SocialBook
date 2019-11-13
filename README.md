@@ -4,6 +4,7 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 [Microverse](https://www.microverse.org/)
 
 -The objetive from this project is build the core of logic from Facebook page.
+-Take a look to the live version below:
 
 #### [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
 
@@ -39,6 +40,7 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 
 - SendGrid
 - AWS S3
+- Heroku
 
 #### Installation
 
