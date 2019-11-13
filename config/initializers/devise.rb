@@ -18,7 +18,8 @@ Devise.setup do |config|
                   token_params: { parse: :json },
                   scope: 'public_profile, email',
                   secure_image_url: true,
-                  info_fields: 'first_name,last_name,picture,name,email'
+                  info_fields: 'first_name,last_name,picture,name,email',
+                  image_size: 'large'
 
   OmniAuth.config.on_failure = proc { |env|
     OmniAuth::FailureEndpoint.new(env).redirect_to_failure
