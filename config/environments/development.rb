@@ -9,8 +9,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'socialbook2019.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: 'agendator2019@gmail.com',
-    password: '2019agendator',
+    user_name: 'Your Email to use',
+    password: 'Your Email Password',
     domain: 'localhost:3000',
     address: 'smtp.gmail.com',
     port: '587',
