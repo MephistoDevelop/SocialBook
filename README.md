@@ -2,6 +2,7 @@
 
 This project it's building using Ruby on Rails Framework using Ruby Lenguage and it's part of the main curriculum from the odin project page. from Microverse, main curriculum
 [Microverse](https://www.microverse.org/)
+[Devise Documentation]( https://github.com/plataformatec/devise/wiki.)
 
 -The objetive from this project is build the core of logic from Facebook page.
 
