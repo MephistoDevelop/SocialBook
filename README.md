@@ -1,6 +1,6 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
-> Project taked from Microverse Curriculum from [The Odin Page project Site]().
+> Project taked from Microverse Curriculum from [The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
 
 This project it's building using Ruby on Rails Framework using Ruby Lenguage and it's part of the main curriculum from the odin project page. from Microverse, main curriculum
 [Microverse](https://www.microverse.org/)
@@ -24,6 +24,12 @@ Tools used to build Aplication:
 ## Live Demo
 
  [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
+ 
+## Future features
+ 
+- Login with Social Medias Authentication
+- UI friendly with final users
+- Filter to stories
  
 ## Getting Started
 
