@@ -1,12 +1,12 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
-> Project taked from Microverse Curriculum from [The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
+> Project taken from Microverse Curriculum from [The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
 
-This project it's building using Ruby on Rails Framework using Ruby Lenguage and it's part of the main curriculum from the odin project page. from Microverse, main curriculum
+This project it's building using Ruby on Rails Framework using Ruby Language and it's part of the main curriculum from the Odin project page. from Microverse, main curriculum
 [Microverse](https://www.microverse.org/)
 [Devise Documentation]( https://github.com/plataformatec/devise/wiki.)
 
--The objetive from this project is build the core of logic from Facebook page.
+-The objective of this project is to build the core of logic from the Facebook page.
 
 ### Desktop view
 
@@ -14,8 +14,8 @@ This project it's building using Ruby on Rails Framework using Ruby Lenguage and
 
 Javascript with Webpack project from [The Odin Project curriculum](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
 
-## Built With Ruby , Ruby on Rails, Heroku
-Tools used to build Aplication:
+## Built With Ruby, Ruby on Rails, Heroku
+Tools used to build Application:
 
 - Ruby
 - Ruby on Rails
@@ -35,9 +35,9 @@ Tools used to build Aplication:
 
 - Principal Functions:
   - Create Account Using Real Email confirmation
-  - Create Login with your Facebook acccount
+  - Create Login with your Facebook account
   - Send friends Requests
-  - Views publications from others friends
+  - Views publications from other friends
 
 
 #### [Entity Relation Diagam](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
@@ -63,7 +63,7 @@ Tools used to build Aplication:
 ### Setup
 
 To use this project you will need to download this repository and put in on your computer.
-after you will need to install webpack and npm to run correctlly this project.
+after you will need to install a webpack and npm to run correctly this project.
 
 #### Installation
 
@@ -82,7 +82,7 @@ Clone or download the repository to your local machine and after open your termi
 
 The project runs on PSQL. For running this application you must have a default PSQL role WITH LOGIN CREATEDB
 
-For altering or creating a PSQL role run the following commands in postgres console
+For altering or creating a PSQL role run the following commands in Postgres console
 
       For Creating a User:
       postgres=# CREATE ROLE role_name WITH LOGIN CREATEDB;
@@ -119,20 +119,15 @@ Run:
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](issues/).
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give an ⭐️ if you like this project!
 
 ## 📝 License
 
 This project is [MIT](lic.url) licensed.
 
-### Author:
-
-[Cristian Ines (MephistoDevelop)](https://github.com/MephistoDevelop)
-
-[Sergio Diaz)](https://github.com/serdg0)
