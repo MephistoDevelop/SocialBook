@@ -114,8 +114,9 @@ Run:
 - Twitter: [@MephistoDevelop](https://twitter.com/MephistoDevelop)
 - Linkedin: [Cristian Hernandez](https://www.linkedin.com/in/cristian-hernandez1992/)
 
-- GitHub: [@Sergio Diaz](https://github.com/serdg0)
+👤 **Sergio Diaz**
 
+[Github](https://github.com/serdg0) | [Twitter](https://twitter.com/thesergiod) | [Linkedin](https://www.linkedin.com/in/sergiodiaz-dev/) | [Portfolio](https://sergiodev.netlify.com/)
 
 ## 🤝 Contributing
 
