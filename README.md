@@ -1,12 +1,12 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
-> Project taken from Microverse Curriculum from [The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
+> Project taken from Microverse Curriculum and[The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
 
 This project it's building using Ruby on Rails Framework using Ruby Language and it's part of the main curriculum from the Odin project page. from Microverse, main curriculum
 [Microverse](https://www.microverse.org/)
 [Devise Documentation]( https://github.com/plataformatec/devise/wiki.)
 
--The objective of this project is to build the core of logic from the Facebook page.
+- The objective of this project is build a social networking using Facebook's core logic.
 
 ### Desktop view
 
@@ -14,8 +14,7 @@ This project it's building using Ruby on Rails Framework using Ruby Language and
 
 Javascript with Webpack project from [The Odin Project curriculum](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
 
-## Built With Ruby, Ruby on Rails, Heroku
-Tools used to build Application:
+## Built With:
 
 - Ruby
 - Ruby on Rails
@@ -27,17 +26,17 @@ Tools used to build Application:
  
 ## Future features
  
-- Login with Social Medias Authentication
-- UI friendly with final users
-- Filter to stories
+- Login with Social Media Authentication
+- Friendly UI.
+- Filter Stories.
  
 ## Getting Started
 
-- Principal Functions:
-  - Create Account Using Real Email confirmation
-  - Create Login with your Facebook account
-  - Send friends Requests
-  - Views publications from other friends
+ Principal Functions:
+  - Create account using email address.
+  - Login with your Facebook account.
+  - Send friend Requests.
+  - View posts from friends  of friends.
 
 
 #### [Entity Relation Diagam](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
@@ -61,13 +60,11 @@ Tools used to build Application:
 
 
 ### Setup
-
-To use this project you will need to download this repository and put in on your computer.
-after you will need to install a webpack and npm to run correctly this project.
+To use this project you will need to download this repository to your computer, Then you will need to install webpack and npm to correctly run this project.
 
 #### Installation
 
-Clone or download the repository to your local machine and after open your terminal on the repository folder and run :
+Clone or download the repository to your local machine. Then open your terminal on the repository folder and run:
 
     bundle install
 
@@ -80,9 +77,9 @@ Clone or download the repository to your local machine and after open your termi
     
 #### Database Requirements
 
-The project runs on PSQL. For running this application you must have a default PSQL role WITH LOGIN CREATEDB
+The project runs on PostgreSQL.
 
-For altering or creating a PSQL role run the following commands in Postgres console
+To run this application you must have a default PSQL role WITH LOGIN CREATED  and then run or create a PSQL role run the following commands in the Postgres console
 
       For Creating a User:
       postgres=# CREATE ROLE role_name WITH LOGIN CREATEDB;
@@ -126,9 +123,8 @@ Feel free to check the [issues page](issues/).
 
 ## Show your support
 
-Give an ⭐️ if you like this project!
+Give and ⭐️ if you like this project!
 
 ## 📝 License
 
 This project is [MIT](lic.url) licensed.
-
