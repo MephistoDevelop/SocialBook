@@ -1,8 +1,9 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
->Project taken from Microverse Curriculum and [The Odin Page](httpThe objective of this project is build a social networking using Facebook's core logic.s://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).. A social network built using Ruby on Rails and Ruby
+> SocialBook page made with Ruby on Rails framework. Deployed on Heroku. 
 
-[Microverse](https://www.microverse.org/)
+Project taken from [Microverse](https://www.microverse.org/) Curriculum and [The Odin Page](httpThe objective of this project is build a social networking using Facebook's core logic.s://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).. A social network built using Ruby on Rails and Ruby
+
 
 [Devise Documentation]( https://github.com/plataformatec/devise/wiThe objective of this project is build a social networking using Facebook's core logic.ki.)
 
