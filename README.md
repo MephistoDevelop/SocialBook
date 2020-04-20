@@ -1,12 +1,12 @@
 # Project: Fakebook ([Microverse - The Odin Project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project))
 
-> Project taken from Microverse Curriculum and[The Odin Page project Site](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).
+>Project taken from Microverse Curriculum and [The Odin Page](httpThe objective of this project is build a social networking using Facebook's core logic.s://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project).. A social network built using Ruby on Rails and Ruby
 
-This project it's building using Ruby on Rails Framework using Ruby Language and it's part of the main curriculum from the Odin project page. from Microverse, main curriculum
 [Microverse](https://www.microverse.org/)
-[Devise Documentation]( https://github.com/plataformatec/devise/wiki.)
 
-- The objective of this project is build a social networking using Facebook's core logic.
+[Devise Documentation]( https://github.com/plataformatec/devise/wiThe objective of this project is build a social networking using Facebook's core logic.ki.)
+
+- The objective of this project is build a social network using Facebook's core logic
 
 ### Desktop view
 
@@ -25,7 +25,7 @@ Javascript with Webpack project from [The Odin Project curriculum](https://www.t
  [Live view - SocialBook Page](https://socialbook2019.herokuapp.com)
  
 ## Future features
- 
+ The objective of this project is build a social networking using Facebook's core logic.
 - Login with Social Media Authentication
 - Friendly UI.
 - Filter Stories.
@@ -39,7 +39,7 @@ Javascript with Webpack project from [The Odin Project curriculum](https://www.t
   - View posts from friends  of friends.
 
 
-#### [Entity Relation Diagam](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
+#### [Entity Relation Diagram](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
 
 ![alt text](https://github.com/MephistoDevelop/fakebook/blob/master/docs/Fakebook-ERM.png)
 
@@ -99,7 +99,7 @@ Run:
 
 ### Rspec tests
 
-    To run rspec at terminal:
+    To run rspec on the terminal:
 
       rspec
 
